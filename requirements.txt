@@ -1,2 +1,8 @@
 pandas
 streamlit
+neo4j
+chromadb
+sentence-transformers
+openai
+python-dotenv
+tqdm
