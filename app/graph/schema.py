@@ -21,7 +21,7 @@ def _create_constraints(session: neo4j.Session) -> None:
         # Empty strings are used in place of NULL so MERGE works correctly.
         """
         CREATE CONSTRAINT place_unique IF NOT EXISTS
-        FOR (p:Place) REQUIRE (p.lieu, p.departement, p.pays) IS NODE KEY
+        FOR (p:Place) REQUIRE (p.lieu, p.departement, p.pays) IS UNIQUE
         """,
         # Regiment deduplicated by name.
         """
