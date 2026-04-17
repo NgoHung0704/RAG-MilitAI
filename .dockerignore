@@ -1,0 +1,17 @@
+.git
+.gitignore
+.vscode
+.venv
+venv
+env
+
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+dist
+build
+
+.env
+data/chroma_db
