@@ -1,0 +1,7 @@
+[server]
+# Disable hot-reload file watcher to silence transformers/torchvision introspection errors
+# (these are benign — Streamlit's watcher tries to inspect modules it doesn't need to).
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
