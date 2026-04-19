@@ -490,3 +490,15 @@ Follow this order to avoid blocking dependencies:
 - The `naissance_lieu` is a locality name as written in the 17th–18th century — spelling may differ from modern French.
 - `compagnie de grenadiers` is a common company name; there will be many soldiers under the same regiment+company combination.
 - `matricule` is a unique identifier within a register, not globally unique.
+
+
+- archive des hommes
+- donnez 18e -19 e siecle
+- images
+- aider interoger aux base de donnees  (on fait pas traitement image - cette etape est deja faite)
+- architecture
+- demo
+- science social (cibler les shs)
+
+
+pitch (pas technique - 2-3 slide et support visual)
