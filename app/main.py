@@ -7,7 +7,12 @@ Run with:
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
+
+# Ensure the project root is on sys.path so that "import app.*" works
+# regardless of how Streamlit resolves the script directory.
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import streamlit as st
 from openai import OpenAI

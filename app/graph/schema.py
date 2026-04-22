@@ -17,12 +17,10 @@ def setup_schema(driver: neo4j.Driver) -> None:
 
 def _create_constraints(session: neo4j.Session) -> None:
     constraints = [
-        # Place is deduplicated on the composite (lieu, departement, pays).
-        # Empty strings are used in place of NULL so MERGE works correctly.
-        """
-        CREATE CONSTRAINT place_unique IF NOT EXISTS
-        FOR (p:Place) REQUIRE (p.lieu, p.departement, p.pays) IS NODE KEY
-        """,
+        # Place: composite NODE KEY requires Enterprise Edition.
+        # Community Edition workaround: use a plain index on lieu + individual
+        # uniqueness is enforced by MERGE in the ingestion script.
+        # (index created in _create_indexes instead)
         # Regiment deduplicated by name.
         """
         CREATE CONSTRAINT regiment_unique IF NOT EXISTS
@@ -50,6 +48,11 @@ def _create_constraints(session: neo4j.Session) -> None:
 
 def _create_indexes(session: neo4j.Session) -> None:
     indexes = [
+        # Place composite index for fast MERGE lookups (Community Edition compatible).
+        """
+        CREATE INDEX place_lieu IF NOT EXISTS
+        FOR (p:Place) ON (p.lieu, p.departement, p.pays)
+        """,
         # Soldier lookup indexes (frequently queried fields).
         """
         CREATE INDEX soldier_nom IF NOT EXISTS
