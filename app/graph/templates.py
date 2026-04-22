@@ -72,10 +72,11 @@ ORDER BY s.nom, s.prenom
         description="Returns all soldiers who died in the given year.",
         params=[ParamDef("annee", "int", "Year of death", "e.g. 1721")],
         cypher="""
-MATCH (s:Soldier)-[r:DIED_IN]->(p:Place)
-WHERE r.annee = $annee
+MATCH (s:Soldier)
+WHERE s.deces_annee = $annee
+OPTIONAL MATCH (s)-[:DIED_IN]->(p:Place)
 RETURN s.nom AS nom, s.prenom AS prenom, s.surnom AS surnom,
-       r.jour AS deces_jour, r.mois AS deces_mois, r.annee AS deces_annee,
+       s.deces_jour AS deces_jour, s.deces_mois AS deces_mois, s.deces_annee AS deces_annee,
        p.lieu AS deces_lieu, p.pays AS deces_pays
 ORDER BY s.nom
         """.strip(),
@@ -130,11 +131,12 @@ ORDER BY s.nom
             ParamDef("nom", "str", "Surname", "e.g. CHALET"),
         ],
         cypher="""
-MATCH (s:Soldier)-[r:DIED_IN]->(p:Place)
-WHERE r.annee = $annee
+MATCH (s:Soldier)
+WHERE s.deces_annee = $annee
   AND toLower(s.nom) CONTAINS toLower($nom)
+OPTIONAL MATCH (s)-[:DIED_IN]->(p:Place)
 RETURN s.nom AS nom, s.prenom AS prenom, s.surnom AS surnom,
-       r.jour AS deces_jour, r.mois AS deces_mois, r.annee AS deces_annee,
+       s.deces_jour AS deces_jour, s.deces_mois AS deces_mois, s.deces_annee AS deces_annee,
        p.lieu AS deces_lieu
 ORDER BY s.nom
         """.strip(),
