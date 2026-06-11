@@ -1,0 +1,19 @@
+[project]
+name = "rag-militai"
+version = "0.1.0"
+description = "MilitAI — RAG and knowledge-graph assistant over military open-source data"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+    "streamlit",
+    "neo4j",
+    "chromadb",
+    "sentence-transformers",
+    "openai",
+    "python-dotenv",
+    "tqdm",
+]
+
+[tool.uv]
+package = false
