@@ -1,0 +1,25 @@
+{
+  "id": "Q-MIG-04",
+  "ref_query": "RQ-MIG-04",
+  "params": {
+    "nom": "LEROY",
+    "prenom": "Guillaume"
+  },
+  "result_kind": "record_fields",
+  "complete": [
+    {
+      "rid": 80,
+      "birth_departement": "Finistère",
+      "enrolement_annee": "1709",
+      "death_departement": "Bas-Rhin"
+    }
+  ],
+  "masked": [
+    {
+      "rid": 80,
+      "birth_departement": "Finistère",
+      "enrolement_annee": "1709",
+      "death_departement": "Bas-Rhin"
+    }
+  ]
+}

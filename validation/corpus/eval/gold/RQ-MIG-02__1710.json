@@ -1,0 +1,30 @@
+{
+  "id": "Q-MIG-02",
+  "ref_query": "RQ-MIG-02",
+  "params": {
+    "year": 1710
+  },
+  "result_kind": "histogram",
+  "complete": {
+    "Bas-Rhin": 1,
+    "Côtes-du-Nord": 1,
+    "Eure": 1,
+    "Finistère": 6,
+    "Gironde": 2,
+    "Isère": 1,
+    "Morbihan": 3,
+    "Moselle": 1,
+    "Nord": 2,
+    "Puy-de-Dôme": 2,
+    "Seine": 2
+  },
+  "masked": {
+    "Eure": 1,
+    "Finistère": 5,
+    "Gironde": 2,
+    "Isère": 1,
+    "Morbihan": 2,
+    "Nord": 2,
+    "Seine": 1
+  }
+}

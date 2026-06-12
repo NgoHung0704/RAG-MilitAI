@@ -1,0 +1,15 @@
+{
+  "id": "Q-SIB-04",
+  "ref_query": "RQ-SIB-04",
+  "params": {
+    "nom": "FAURE",
+    "prenom": "Andre"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    75
+  ],
+  "masked": [
+    75
+  ]
+}

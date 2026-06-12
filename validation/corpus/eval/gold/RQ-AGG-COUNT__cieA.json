@@ -1,0 +1,14 @@
+{
+  "id": "Q-AGG-COUNT",
+  "ref_query": "RQ-AGG-COUNT",
+  "params": {
+    "cie": "Cie_A"
+  },
+  "result_kind": "count",
+  "complete": {
+    "count": 15
+  },
+  "masked": {
+    "count": 15
+  }
+}

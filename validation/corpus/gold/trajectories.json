@@ -1,0 +1,56 @@
+{
+  "trajectories": [
+    {
+      "rid": 80,
+      "tier": "A",
+      "birth_departement": "Finistère",
+      "birth_lieu": "Quimper",
+      "enrolement_annee": 1709,
+      "death_departement": "Bas-Rhin",
+      "death_lieu": "Strasbourg",
+      "recoverable_masked": true
+    },
+    {
+      "rid": 81,
+      "tier": "A",
+      "birth_departement": "Morbihan",
+      "birth_lieu": "Vannes",
+      "enrolement_annee": 1710,
+      "death_departement": "Nord",
+      "death_lieu": "Lille",
+      "recoverable_masked": true
+    },
+    {
+      "rid": 82,
+      "tier": "B",
+      "birth_departement": "Bas-Rhin",
+      "birth_lieu": "Haguenau",
+      "enrolement_annee": 1711,
+      "death_departement": "Rhône",
+      "death_lieu": "Lyon",
+      "recoverable_masked": false
+    },
+    {
+      "rid": 83,
+      "tier": "C",
+      "birth_departement": "Gironde",
+      "birth_lieu": "Bordeaux",
+      "enrolement_annee": 1708,
+      "death_departement": "Seine",
+      "death_lieu": "Paris",
+      "recoverable_masked": false
+    },
+    {
+      "rid": 84,
+      "tier": "B",
+      "birth_departement": "Nord",
+      "birth_lieu": "Douai",
+      "enrolement_annee": 1712,
+      "death_departement": "Isère",
+      "death_lieu": "Grenoble",
+      "recoverable_masked": false
+    }
+  ],
+  "n_total": 5,
+  "n_recoverable_masked": 2
+}

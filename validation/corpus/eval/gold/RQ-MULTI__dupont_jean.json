@@ -1,0 +1,21 @@
+{
+  "id": "Q-MULTI",
+  "ref_query": "RQ-MULTI",
+  "params": {
+    "nom": "DUPONT",
+    "prenom": "Jean"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    1,
+    2,
+    4,
+    80
+  ],
+  "masked": [
+    1,
+    2,
+    4,
+    80
+  ]
+}

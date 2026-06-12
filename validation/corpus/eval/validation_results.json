@@ -1,0 +1,1324 @@
+{
+  "meta": {
+    "corpus_records": 180,
+    "seed": 20260611,
+    "conditions": [
+      "COMPLETE",
+      "MASKED"
+    ],
+    "tiers": {
+      "A": 18,
+      "B": 63,
+      "C": 99
+    },
+    "oracle": "Reference Query Catalogue executed in pandas (norm + toponym + post-proc)",
+    "judge_model": "google/gemma-4-31b-it",
+    "generator": "DeepSeek (nl2cypher,rag-gen)",
+    "embeddings": "all-MiniLM-L6-v2"
+  },
+  "dataset": {
+    "gold_companies": {
+      "compagnie A": {
+        "n": 15,
+        "origin_histogram": {
+          "Côtes-du-Nord": 3,
+          "Finistère": 9,
+          "Morbihan": 3
+        }
+      },
+      "compagnie B": {
+        "n": 14,
+        "origin_histogram": {
+          "Bas-Rhin": 5,
+          "Meurthe": 4,
+          "Moselle": 5
+        }
+      },
+      "compagnie C": {
+        "n": 12,
+        "origin_histogram": {
+          "Gironde": 2,
+          "Isère": 2,
+          "Nord": 2,
+          "Puy-de-Dôme": 2,
+          "Rhône": 2,
+          "Seine": 2
+        }
+      },
+      "compagnie D": {
+        "n": 14,
+        "origin_histogram": {
+          "Eure": 2,
+          "Finistère": 4,
+          "Morbihan": 3,
+          "Seine": 5
+        }
+      }
+    },
+    "families": {
+      "FAM-CLEAN-1": {
+        "surname": "DUPONT",
+        "members": [
+          0,
+          1,
+          2
+        ],
+        "should_cluster": true
+      },
+      "FAM-CLEAN-2": {
+        "surname": "LE GOFF",
+        "members": [
+          12,
+          13
+        ],
+        "should_cluster": true
+      },
+      "FAM-CLEAN-3": {
+        "surname": "SCHMITT",
+        "members": [
+          20,
+          21
+        ],
+        "should_cluster": true
+      },
+      "FAM-CLEAN-4": {
+        "surname": "TANGUY",
+        "members": [
+          41,
+          42
+        ],
+        "should_cluster": true
+      },
+      "FAM-DECOY-1": {
+        "surname": "RENARD",
+        "members": [
+          72,
+          73
+        ],
+        "should_cluster": false
+      },
+      "FAM-NEG-1": {
+        "surname": "MASSON",
+        "members": [
+          78,
+          79
+        ],
+        "should_cluster": false
+      },
+      "FAM-PARTIAL-1": {
+        "surname": "FAURE",
+        "members": [
+          74,
+          75
+        ],
+        "should_cluster": true
+      },
+      "FAM-SINGLEP-1": {
+        "surname": "ROUSSEL",
+        "members": [
+          76,
+          77
+        ],
+        "should_cluster": true
+      }
+    },
+    "vertical_links": {
+      "VERT-TRUE": {
+        "son": "DUPONT Jean",
+        "expected_father_rid": 55,
+        "gap": 30
+      },
+      "VERT-YOUNG": {
+        "son": "GIRARD Louis",
+        "expected_father_rid": 56,
+        "gap": 17
+      },
+      "VERT-OLD": {
+        "son": "ROUX Antoine",
+        "expected_father_rid": 57,
+        "gap": 52
+      },
+      "VERT-DECOY": {
+        "son": "MOREAU Pierre",
+        "expected_father_rid": null,
+        "gap": -2
+      },
+      "VERT-ABSENT": {
+        "son": "BLANC Jacques",
+        "expected_father_rid": null,
+        "gap": null
+      }
+    },
+    "stature": {
+      "cohort_n": 13,
+      "region_means_complete": {
+        "Bretagne": {
+          "n": 8,
+          "mean_cm": 169.8
+        },
+        "Alsace": {
+          "n": 5,
+          "mean_cm": 164.2
+        }
+      },
+      "region_means_masked": {
+        "Bretagne": {
+          "n": 3,
+          "mean_cm": 168.9
+        },
+        "Alsace": {
+          "n": 1,
+          "mean_cm": 162.4
+        }
+      }
+    },
+    "trajectories": {
+      "n_total": 5,
+      "n_recoverable_masked": 2
+    },
+    "masking_marginals": {
+      "nom": {
+        "complete": 1.0,
+        "masked": 1.0
+      },
+      "prenom": {
+        "complete": 1.0,
+        "masked": 1.0
+      },
+      "compagnie": {
+        "complete": 1.0,
+        "masked": 1.0
+      },
+      "enrolement_annee": {
+        "complete": 1.0,
+        "masked": 0.828
+      },
+      "matricule": {
+        "complete": 1.0,
+        "masked": 0.839
+      },
+      "naissance_lieu": {
+        "complete": 0.994,
+        "masked": 0.772
+      },
+      "naissance_departement": {
+        "complete": 0.994,
+        "masked": 0.661
+      },
+      "naissance_region": {
+        "complete": 0.128,
+        "masked": 0.111
+      },
+      "naissance_pays": {
+        "complete": 1.0,
+        "masked": 0.739
+      },
+      "pere_prenom": {
+        "complete": 0.994,
+        "masked": 0.511
+      },
+      "mere_nom": {
+        "complete": 0.994,
+        "masked": 0.422
+      },
+      "mere_prenom": {
+        "complete": 0.994,
+        "masked": 0.45
+      },
+      "deces_annee": {
+        "complete": 1.0,
+        "masked": 0.272
+      },
+      "grade_final": {
+        "complete": 1.0,
+        "masked": 0.25
+      },
+      "regiment": {
+        "complete": 1.0,
+        "masked": 0.15
+      },
+      "taille_metre": {
+        "complete": 0.072,
+        "masked": 0.022
+      },
+      "pied": {
+        "complete": 0.072,
+        "masked": 0.022
+      },
+      "deces_departement": {
+        "complete": 0.028,
+        "masked": 0.011
+      },
+      "naissance_pieve": {
+        "complete": 0.011,
+        "masked": 0.006
+      },
+      "surnom": {
+        "complete": 1.0,
+        "masked": 0.778
+      }
+    }
+  },
+  "results": {
+    "engine_accuracy": {
+      "reference": {
+        "COMPLETE": 1.0,
+        "MASKED": 1.0
+      },
+      "template": {
+        "COMPLETE": 1.0,
+        "MASKED": 0.9796
+      },
+      "nl2cypher": {
+        "COMPLETE": 0.5159,
+        "MASKED": 0.5232
+      }
+    },
+    "rag": {
+      "COMPLETE": {
+        "hit_rate": 0.7059,
+        "recall_at_k": 0.4521,
+        "ndcg_at_10": 0.4336,
+        "name_coverage": 0.4624,
+        "faithfulness": 0.9576,
+        "abstention_acc": 0.7059
+      },
+      "MASKED": {
+        "hit_rate": 0.7059,
+        "recall_at_k": 0.3777,
+        "ndcg_at_10": 0.3749,
+        "name_coverage": 0.3441,
+        "faithfulness": 0.8853,
+        "abstention_acc": 0.5294
+      }
+    },
+    "degradation_by_use_case": {
+      "anthropometric": {
+        "n": 4,
+        "mean_recall_vs_complete": 0.1
+      },
+      "bounded": {
+        "n": 8,
+        "mean_recall_vs_complete": 0.6397
+      },
+      "genealogy": {
+        "n": 11,
+        "mean_recall_vs_complete": 0.9254
+      },
+      "lookup": {
+        "n": 14,
+        "mean_recall_vs_complete": 0.9857
+      },
+      "mechanics": {
+        "n": 5,
+        "mean_recall_vs_complete": 0.8
+      },
+      "migration": {
+        "n": 8,
+        "mean_recall_vs_complete": 0.7865
+      }
+    },
+    "per_question": {
+      "Q-NAME-01a": {
+        "ref_query": "RQ-NAME-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-NAME-01b": {
+        "ref_query": "RQ-NAME-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-NAME-02a": {
+        "ref_query": "RQ-NAME-02",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-NAME-02b": {
+        "ref_query": "RQ-NAME-02",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-NAME-03": {
+        "ref_query": "RQ-NAME-03",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-COMP-01a": {
+        "ref_query": "RQ-COMP-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "skipped (no app template for RQ-COMP-01)",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-COMP-01b": {
+        "ref_query": "RQ-COMP-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.1538,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-COMP-02": {
+        "ref_query": "RQ-COMP-02",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ENR-01a": {
+        "ref_query": "RQ-ENR-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.9,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9268,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ENR-01b": {
+        "ref_query": "RQ-ENR-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.9,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9767,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-BPL-01a": {
+        "ref_query": "RQ-BPL-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9333,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-BPL-01b": {
+        "ref_query": "RQ-BPL-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9333,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-REC-01": {
+        "ref_query": "RQ-REC-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rag_target",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ENR-02": {
+        "ref_query": "RQ-ENR-02",
+        "use_case": "bounded",
+        "stratum": "lookup",
+        "split": "unseen",
+        "result_kind": "rid_set",
+        "degradation": 0.9178,
+        "live": {
+          "template": {
+            "status": "skipped (no app template for RQ-ENR-02)",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9806,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-DTH-01a": {
+        "ref_query": "RQ-DTH-01",
+        "use_case": "bounded",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.4444,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9231,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-DTH-01b": {
+        "ref_query": "RQ-DTH-01",
+        "use_case": "bounded",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.4444,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9231,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-RNK-01a": {
+        "ref_query": "RQ-RNK-01",
+        "use_case": "bounded",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.5556,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-RNK-01b": {
+        "ref_query": "RQ-RNK-01",
+        "use_case": "bounded",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.5556,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.8696,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-PAR-01a": {
+        "ref_query": "RQ-PAR-01",
+        "use_case": "bounded",
+        "stratum": "multi_hop",
+        "split": "seen",
+        "result_kind": "record_fields",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "skipped (no app template for RQ-PAR-01)",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "unparseable",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-PAR-01b": {
+        "ref_query": "RQ-PAR-01",
+        "use_case": "bounded",
+        "stratum": "multi_hop",
+        "split": "seen",
+        "result_kind": "record_fields",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "unparseable",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-SIB-01a": {
+        "ref_query": "RQ-SIB-01",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "rid_set",
+        "degradation": 0.6667,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-SIB-01b": {
+        "ref_query": "RQ-SIB-01",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "rid_set",
+        "degradation": 0.6667,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-SIB-02": {
+        "ref_query": "RQ-SIB-02",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "partition",
+        "degradation": 0.8462,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.8081,
+            "retrieval_recall": 0.8
+          }
+        }
+      },
+      "Q-SIB-03": {
+        "ref_query": "RQ-SIB-03",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "false_merge",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-SIB-04": {
+        "ref_query": "RQ-SIB-04",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-VERT-01a": {
+        "ref_query": "RQ-VERT-01",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "linkage",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": 0.0
+          }
+        }
+      },
+      "Q-VERT-01b": {
+        "ref_query": "RQ-VERT-01",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "linkage",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": 1.0
+          }
+        }
+      },
+      "Q-VERT-02": {
+        "ref_query": "RQ-VERT-02",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "linkage",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-VERT-03": {
+        "ref_query": "RQ-VERT-03",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "linkage",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": 1.0
+          }
+        }
+      },
+      "Q-VERT-04": {
+        "ref_query": "RQ-VERT-04",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "linkage",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": 1.0
+          }
+        }
+      },
+      "Q-VERT-05": {
+        "ref_query": "RQ-VERT-05",
+        "use_case": "genealogy",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "linkage",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-01a": {
+        "ref_query": "RQ-MIG-01",
+        "use_case": "migration",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "histogram",
+        "degradation": 0.8889,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.1744,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-01b": {
+        "ref_query": "RQ-MIG-01",
+        "use_case": "migration",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "histogram",
+        "degradation": 0.8889,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.1546,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-TOPO": {
+        "ref_query": "RQ-MIG-01",
+        "use_case": "migration",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "count",
+        "degradation": 0.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-02": {
+        "ref_query": "RQ-MIG-02",
+        "use_case": "migration",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "histogram",
+        "degradation": 0.7778,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9268,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-03": {
+        "ref_query": "RQ-MIG-03",
+        "use_case": "migration",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "histogram_pair",
+        "degradation": 0.906,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-04": {
+        "ref_query": "RQ-MIG-04",
+        "use_case": "migration",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "record_fields",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "unparseable",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ANTH-01a": {
+        "ref_query": "RQ-ANTH-01",
+        "use_case": "anthropometric",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "aggregate",
+        "degradation": 0.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "query_error",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ANTH-01b": {
+        "ref_query": "RQ-ANTH-01",
+        "use_case": "anthropometric",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "aggregate",
+        "degradation": 0.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "query_error",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ANTH-02": {
+        "ref_query": "RQ-ANTH-02",
+        "use_case": "anthropometric",
+        "stratum": "lookup",
+        "split": "unseen",
+        "result_kind": "rid_set",
+        "degradation": 0.4,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ANTH-03": {
+        "ref_query": "RQ-ANTH-03",
+        "use_case": "anthropometric",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "aggregate_pair",
+        "degradation": 0.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-UNANS-REG": {
+        "ref_query": "RQ-UNANS-REG",
+        "use_case": "mechanics",
+        "stratum": "unanswerable",
+        "split": "seen",
+        "result_kind": "record_fields",
+        "degradation": 0.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-ZERO": {
+        "ref_query": "RQ-ZERO",
+        "use_case": "mechanics",
+        "stratum": "unanswerable",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-DIS": {
+        "ref_query": "RQ-DIS",
+        "use_case": "mechanics",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "disambiguation",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-AGG-COUNT": {
+        "ref_query": "RQ-AGG-COUNT",
+        "use_case": "mechanics",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "count",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MULTI": {
+        "ref_query": "RQ-MULTI",
+        "use_case": "mechanics",
+        "stratum": "multi_hop",
+        "split": "unseen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.0,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-BPL-02": {
+        "ref_query": "RQ-BPL-01",
+        "use_case": "migration",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.9412,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.2581,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-DES-01": {
+        "ref_query": "RQ-DES-01",
+        "use_case": "bounded",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 0.2,
+        "live": {
+          "template": {
+            "status": "ok",
+            "score": 1.0,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.9859,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-MIG-01c": {
+        "ref_query": "RQ-MIG-01",
+        "use_case": "migration",
+        "stratum": "aggregation",
+        "split": "unseen",
+        "result_kind": "histogram",
+        "degradation": 0.8889,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.2222,
+            "retrieval_recall": null
+          }
+        }
+      },
+      "Q-COMP-01c": {
+        "ref_query": "RQ-COMP-01",
+        "use_case": "lookup",
+        "stratum": "lookup",
+        "split": "seen",
+        "result_kind": "rid_set",
+        "degradation": 1.0,
+        "live": {
+          "template": {
+            "status": "n/a",
+            "score": null,
+            "retrieval_recall": null
+          },
+          "nl2cypher": {
+            "status": "ok",
+            "score": 0.1272,
+            "retrieval_recall": null
+          }
+        }
+      }
+    }
+  }
+}

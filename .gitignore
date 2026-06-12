@@ -17,3 +17,7 @@ env/
 *.egg-info/
 dist/
 build/
+specs/
+
+# Validation eval embedding cache (regenerable from the corpus CSVs)
+validation/corpus/eval/chroma/

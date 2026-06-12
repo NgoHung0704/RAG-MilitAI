@@ -1,0 +1,15 @@
+{
+  "id": "Q-NAME-02b",
+  "ref_query": "RQ-NAME-02",
+  "params": {
+    "nom": "CHALET",
+    "prenom": "Jean"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    62
+  ],
+  "masked": [
+    62
+  ]
+}

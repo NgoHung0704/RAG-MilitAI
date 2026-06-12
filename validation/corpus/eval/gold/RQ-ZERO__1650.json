@@ -1,0 +1,10 @@
+{
+  "id": "Q-ZERO",
+  "ref_query": "RQ-ZERO",
+  "params": {
+    "year": 1650
+  },
+  "result_kind": "rid_set",
+  "complete": [],
+  "masked": []
+}

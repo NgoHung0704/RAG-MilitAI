@@ -1,0 +1,159 @@
+{
+  "compagnie A": {
+    "n": 15,
+    "members": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "origin_histogram_complete": {
+      "Côtes-du-Nord": 3,
+      "Finistère": 9,
+      "Morbihan": 3
+    },
+    "origin_histogram_masked": {
+      "Côtes-du-Nord": 1,
+      "Finistère": 9,
+      "Morbihan": 2
+    },
+    "enrolement_years": [
+      1708,
+      1709,
+      1710,
+      1711,
+      1712
+    ]
+  },
+  "compagnie B": {
+    "n": 14,
+    "members": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "origin_histogram_complete": {
+      "Bas-Rhin": 5,
+      "Meurthe": 4,
+      "Moselle": 5
+    },
+    "origin_histogram_masked": {
+      "Bas-Rhin": 3,
+      "Meurthe": 3,
+      "Moselle": 5
+    },
+    "enrolement_years": [
+      1710,
+      1711,
+      1712,
+      1713,
+      1714,
+      1715
+    ]
+  },
+  "compagnie C": {
+    "n": 12,
+    "members": [
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "origin_histogram_complete": {
+      "Gironde": 2,
+      "Isère": 2,
+      "Nord": 2,
+      "Puy-de-Dôme": 2,
+      "Rhône": 2,
+      "Seine": 2
+    },
+    "origin_histogram_masked": {
+      "Gironde": 2,
+      "Isère": 1,
+      "Nord": 2,
+      "Puy-de-Dôme": 1,
+      "Rhône": 1,
+      "Seine": 2
+    },
+    "enrolement_years": [
+      1706,
+      1707,
+      1708,
+      1709,
+      1710,
+      1711,
+      1712,
+      1713,
+      1714,
+      1715,
+      1716
+    ]
+  },
+  "compagnie D": {
+    "n": 14,
+    "members": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54
+    ],
+    "origin_histogram_complete": {
+      "Eure": 2,
+      "Finistère": 4,
+      "Morbihan": 3,
+      "Seine": 5
+    },
+    "origin_histogram_masked": {
+      "Eure": 1,
+      "Finistère": 4,
+      "Morbihan": 3,
+      "Seine": 4
+    },
+    "enrolement_years": [
+      1710,
+      1711,
+      1712,
+      1713
+    ]
+  }
+}

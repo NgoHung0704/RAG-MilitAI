@@ -1,0 +1,15 @@
+{
+  "id": "Q-MIG-TOPO",
+  "ref_query": "RQ-MIG-01",
+  "params": {
+    "cie": "Cie_A",
+    "region": "Bretagne"
+  },
+  "result_kind": "count",
+  "complete": {
+    "count": 15
+  },
+  "masked": {
+    "count": 12
+  }
+}
