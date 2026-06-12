@@ -19,7 +19,8 @@ from openai import OpenAI
 
 import app.config as config
 from app.graph.connection import get_driver_for_dataset
-from app.ui import nl2cypher_panel, rag_panel, showcase_panel, template_panel
+from app.ui import (nl2cypher_panel, rag_panel, report_panel, showcase_panel,
+                    template_panel)
 from app.ui.sidebar import render_sidebar
 
 st.set_page_config(
@@ -75,8 +76,8 @@ collection_name = ds["chroma_collection"]
 # Main panels — four tabs
 # ---------------------------------------------------------------------------
 
-tab_template, tab_rag, tab_nl2cypher, tab_showcase = st.tabs(
-    ["Template", "RAG", "NL2Cypher", "Showcase"]
+tab_template, tab_rag, tab_nl2cypher, tab_showcase, tab_report = st.tabs(
+    ["Template", "RAG", "NL2Cypher", "Showcase", "Validation Report"]
 )
 
 with tab_template:
@@ -90,3 +91,6 @@ with tab_nl2cypher:
 
 with tab_showcase:
     showcase_panel.render(config)
+
+with tab_report:
+    report_panel.render(config)
