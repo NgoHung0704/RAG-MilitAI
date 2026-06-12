@@ -3,7 +3,8 @@
     "source": "Wikidata",
     "pinned": "2026-06-11",
     "geography": "modern",
-    "note": "Illustrative pinned QIDs for modern administrative geography; null where not pinned. Diachronic layer scaffolded, not used in demo."
+    "note": "Illustrative pinned QIDs for modern administrative geography; null where not pinned. Diachronic layer scaffolded, not used in demo.",
+    "snapshot_id": "sha256:0a0d48968ab02231"
   },
   "regions": {
     "Bretagne": {
@@ -14,8 +15,22 @@
         "Côtes-du-Nord",
         "Morbihan"
       ],
+      "en_label": "Brittany",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "bretagne",
-      "norm_en": "brittany"
+      "norm_en": "brittany",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Alsace": {
       "qid": "Q1142",
@@ -23,8 +38,22 @@
       "departments": [
         "Bas-Rhin"
       ],
+      "en_label": "Alsace",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "alsace",
-      "norm_en": "alsace"
+      "norm_en": "alsace",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lorraine": {
       "qid": "Q1133",
@@ -33,8 +62,22 @@
         "Moselle",
         "Meurthe"
       ],
+      "en_label": "Lorraine",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "lorraine",
-      "norm_en": "lorraine"
+      "norm_en": "lorraine",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Île-de-France": {
       "qid": "Q13917",
@@ -42,8 +85,22 @@
       "departments": [
         "Seine"
       ],
+      "en_label": "Île-de-France",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "iledefrance",
-      "norm_en": "iledefrance"
+      "norm_en": "iledefrance",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lyonnais": {
       "qid": null,
@@ -51,8 +108,22 @@
       "departments": [
         "Rhône"
       ],
+      "en_label": "Lyonnais",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "lyonnais",
-      "norm_en": "lyonnais"
+      "norm_en": "lyonnais",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Guyenne": {
       "qid": null,
@@ -60,8 +131,22 @@
       "departments": [
         "Gironde"
       ],
+      "en_label": "Guyenne",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "guyenne",
-      "norm_en": "guyenne"
+      "norm_en": "guyenne",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Flandre": {
       "qid": null,
@@ -69,8 +154,22 @@
       "departments": [
         "Nord"
       ],
+      "en_label": "Flanders",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "flandre",
-      "norm_en": "flanders"
+      "norm_en": "flanders",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Dauphiné": {
       "qid": null,
@@ -78,8 +177,22 @@
       "departments": [
         "Isère"
       ],
+      "en_label": "Dauphiné",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "dauphine",
-      "norm_en": "dauphine"
+      "norm_en": "dauphine",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Auvergne": {
       "qid": null,
@@ -87,8 +200,22 @@
       "departments": [
         "Puy-de-Dôme"
       ],
+      "en_label": "Auvergne",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "auvergne",
-      "norm_en": "auvergne"
+      "norm_en": "auvergne",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Normandie": {
       "qid": "Q18677",
@@ -96,8 +223,22 @@
       "departments": [
         "Eure"
       ],
+      "en_label": "Normandy",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "normandie",
-      "norm_en": "normandy"
+      "norm_en": "normandy",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Corse": {
       "qid": "Q14112",
@@ -105,446 +246,1469 @@
       "departments": [
         "Corse"
       ],
+      "en_label": "Corsica",
+      "alt_labels": [],
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "region",
+      "parent_qids": [],
+      "coords": null,
       "norm_fr": "corse",
-      "norm_en": "corsica"
+      "norm_en": "corsica",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     }
   },
   "departments": {
     "Finistère": {
       "label_fr": "Finistère",
       "label_en": "Finistère",
+      "en_label": "Finistère",
+      "alt_labels": [],
       "wikidata_qid": "Q3361",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Bretagne",
-      "norm": "finistere"
+      "parent_qids": [
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "finistere",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Côtes-du-Nord": {
       "label_fr": "Côtes-du-Nord",
       "label_en": "Côtes-d'Armor",
+      "en_label": "Côtes-du-Nord",
+      "alt_labels": [
+        "Côtes-d'Armor"
+      ],
       "wikidata_qid": "Q3354",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Bretagne",
-      "norm": "cotesdunord"
+      "parent_qids": [
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "cotesdunord",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Morbihan": {
       "label_fr": "Morbihan",
       "label_en": "Morbihan",
+      "en_label": "Morbihan",
+      "alt_labels": [],
       "wikidata_qid": "Q3331",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Bretagne",
-      "norm": "morbihan"
+      "parent_qids": [
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "morbihan",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Bas-Rhin": {
       "label_fr": "Bas-Rhin",
       "label_en": "Bas-Rhin",
+      "en_label": "Bas-Rhin",
+      "alt_labels": [],
       "wikidata_qid": "Q12722",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Alsace",
-      "norm": "basrhin"
+      "parent_qids": [
+        "Q1142"
+      ],
+      "coords": null,
+      "norm": "basrhin",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Moselle": {
       "label_fr": "Moselle",
       "label_en": "Moselle",
+      "en_label": "Moselle",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Lorraine",
-      "norm": "moselle"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "moselle",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Meurthe": {
       "label_fr": "Meurthe",
       "label_en": "Meurthe-et-Moselle",
+      "en_label": "Meurthe",
+      "alt_labels": [
+        "Meurthe-et-Moselle"
+      ],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Lorraine",
-      "norm": "meurthe"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "meurthe",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Seine": {
       "label_fr": "Seine",
       "label_en": "Paris (former Seine)",
+      "en_label": "Seine",
+      "alt_labels": [
+        "Paris (former Seine)"
+      ],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Île-de-France",
-      "norm": "seine"
+      "parent_qids": [
+        "Q13917"
+      ],
+      "coords": null,
+      "norm": "seine",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Rhône": {
       "label_fr": "Rhône",
       "label_en": "Rhône",
+      "en_label": "Rhône",
+      "alt_labels": [],
       "wikidata_qid": "Q12724",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Lyonnais",
-      "norm": "rhone"
+      "parent_qids": [],
+      "coords": null,
+      "norm": "rhone",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Gironde": {
       "label_fr": "Gironde",
       "label_en": "Gironde",
+      "en_label": "Gironde",
+      "alt_labels": [],
       "wikidata_qid": "Q3338",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Guyenne",
-      "norm": "gironde"
+      "parent_qids": [],
+      "coords": null,
+      "norm": "gironde",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Nord": {
       "label_fr": "Nord",
       "label_en": "Nord",
+      "en_label": "Nord",
+      "alt_labels": [],
       "wikidata_qid": "Q12709",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Flandre",
-      "norm": "nord"
+      "parent_qids": [],
+      "coords": null,
+      "norm": "nord",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Isère": {
       "label_fr": "Isère",
       "label_en": "Isère",
+      "en_label": "Isère",
+      "alt_labels": [],
       "wikidata_qid": "Q3214",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Dauphiné",
-      "norm": "isere"
+      "parent_qids": [],
+      "coords": null,
+      "norm": "isere",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Puy-de-Dôme": {
       "label_fr": "Puy-de-Dôme",
       "label_en": "Puy-de-Dôme",
+      "en_label": "Puy-de-Dôme",
+      "alt_labels": [],
       "wikidata_qid": "Q7139",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Auvergne",
-      "norm": "puydedome"
+      "parent_qids": [],
+      "coords": null,
+      "norm": "puydedome",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Eure": {
       "label_fr": "Eure",
       "label_en": "Eure",
+      "en_label": "Eure",
+      "alt_labels": [],
       "wikidata_qid": "Q3319",
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Normandie",
-      "norm": "eure"
+      "parent_qids": [
+        "Q18677"
+      ],
+      "coords": null,
+      "norm": "eure",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Corse": {
       "label_fr": "Corse",
       "label_en": "Corse",
+      "en_label": "Corse",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "department",
       "p131_region": "Corse",
-      "norm": "corse"
+      "parent_qids": [
+        "Q14112"
+      ],
+      "coords": null,
+      "norm": "corse",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     }
   },
   "communes": {
     "Quimper": {
       "label": "Quimper",
+      "en_label": "Quimper",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Finistère",
       "p131_region": "Bretagne",
-      "norm": "quimper"
+      "parent_qids": [
+        "Q3361",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "quimper",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Brest": {
       "label": "Brest",
+      "en_label": "Brest",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Finistère",
       "p131_region": "Bretagne",
-      "norm": "brest"
+      "parent_qids": [
+        "Q3361",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "brest",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Landerneau": {
       "label": "Landerneau",
+      "en_label": "Landerneau",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Finistère",
       "p131_region": "Bretagne",
-      "norm": "landerneau"
+      "parent_qids": [
+        "Q3361",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "landerneau",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Morlaix": {
       "label": "Morlaix",
+      "en_label": "Morlaix",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Finistère",
       "p131_region": "Bretagne",
-      "norm": "morlaix"
+      "parent_qids": [
+        "Q3361",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "morlaix",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Quimperlé": {
       "label": "Quimperlé",
+      "en_label": "Quimperlé",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Finistère",
       "p131_region": "Bretagne",
-      "norm": "quimperle"
+      "parent_qids": [
+        "Q3361",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "quimperle",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Le Faou": {
       "label": "Le Faou",
+      "en_label": "Le Faou",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Finistère",
       "p131_region": "Bretagne",
-      "norm": "lefaou"
+      "parent_qids": [
+        "Q3361",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "lefaou",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Saint-Brieuc": {
       "label": "Saint-Brieuc",
+      "en_label": "Saint-Brieuc",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Côtes-du-Nord",
       "p131_region": "Bretagne",
-      "norm": "saintbrieuc"
+      "parent_qids": [
+        "Q3354",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "saintbrieuc",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Dinan": {
       "label": "Dinan",
+      "en_label": "Dinan",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Côtes-du-Nord",
       "p131_region": "Bretagne",
-      "norm": "dinan"
+      "parent_qids": [
+        "Q3354",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "dinan",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lannion": {
       "label": "Lannion",
+      "en_label": "Lannion",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Côtes-du-Nord",
       "p131_region": "Bretagne",
-      "norm": "lannion"
+      "parent_qids": [
+        "Q3354",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "lannion",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Guingamp": {
       "label": "Guingamp",
+      "en_label": "Guingamp",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Côtes-du-Nord",
       "p131_region": "Bretagne",
-      "norm": "guingamp"
+      "parent_qids": [
+        "Q3354",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "guingamp",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Vannes": {
       "label": "Vannes",
+      "en_label": "Vannes",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Morbihan",
       "p131_region": "Bretagne",
-      "norm": "vannes"
+      "parent_qids": [
+        "Q3331",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "vannes",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lorient": {
       "label": "Lorient",
+      "en_label": "Lorient",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Morbihan",
       "p131_region": "Bretagne",
-      "norm": "lorient"
+      "parent_qids": [
+        "Q3331",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "lorient",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Auray": {
       "label": "Auray",
+      "en_label": "Auray",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Morbihan",
       "p131_region": "Bretagne",
-      "norm": "auray"
+      "parent_qids": [
+        "Q3331",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "auray",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Pontivy": {
       "label": "Pontivy",
+      "en_label": "Pontivy",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Morbihan",
       "p131_region": "Bretagne",
-      "norm": "pontivy"
+      "parent_qids": [
+        "Q3331",
+        "Q12130"
+      ],
+      "coords": null,
+      "norm": "pontivy",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Strasbourg": {
       "label": "Strasbourg",
+      "en_label": "Strasbourg",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Bas-Rhin",
       "p131_region": "Alsace",
-      "norm": "strasbourg"
+      "parent_qids": [
+        "Q12722",
+        "Q1142"
+      ],
+      "coords": null,
+      "norm": "strasbourg",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Haguenau": {
       "label": "Haguenau",
+      "en_label": "Haguenau",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Bas-Rhin",
       "p131_region": "Alsace",
-      "norm": "haguenau"
+      "parent_qids": [
+        "Q12722",
+        "Q1142"
+      ],
+      "coords": null,
+      "norm": "haguenau",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Saverne": {
       "label": "Saverne",
+      "en_label": "Saverne",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Bas-Rhin",
       "p131_region": "Alsace",
-      "norm": "saverne"
+      "parent_qids": [
+        "Q12722",
+        "Q1142"
+      ],
+      "coords": null,
+      "norm": "saverne",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Sélestat": {
       "label": "Sélestat",
+      "en_label": "Sélestat",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Bas-Rhin",
       "p131_region": "Alsace",
-      "norm": "selestat"
+      "parent_qids": [
+        "Q12722",
+        "Q1142"
+      ],
+      "coords": null,
+      "norm": "selestat",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Metz": {
       "label": "Metz",
+      "en_label": "Metz",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Moselle",
       "p131_region": "Lorraine",
-      "norm": "metz"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "metz",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Thionville": {
       "label": "Thionville",
+      "en_label": "Thionville",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Moselle",
       "p131_region": "Lorraine",
-      "norm": "thionville"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "thionville",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Sarreguemines": {
       "label": "Sarreguemines",
+      "en_label": "Sarreguemines",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Moselle",
       "p131_region": "Lorraine",
-      "norm": "sarreguemines"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "sarreguemines",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Brieulles-sur-Meuse": {
       "label": "Brieulles-sur-Meuse",
+      "en_label": "Brieulles-sur-Meuse",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Moselle",
       "p131_region": "Lorraine",
-      "norm": "brieullessurmeuse"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "brieullessurmeuse",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Nancy": {
       "label": "Nancy",
+      "en_label": "Nancy",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Meurthe",
       "p131_region": "Lorraine",
-      "norm": "nancy"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "nancy",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lunéville": {
       "label": "Lunéville",
+      "en_label": "Lunéville",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Meurthe",
       "p131_region": "Lorraine",
-      "norm": "luneville"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "luneville",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Toul": {
       "label": "Toul",
+      "en_label": "Toul",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Meurthe",
       "p131_region": "Lorraine",
-      "norm": "toul"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "toul",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Pont-à-Mousson": {
       "label": "Pont-à-Mousson",
+      "en_label": "Pont-à-Mousson",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Meurthe",
       "p131_region": "Lorraine",
-      "norm": "pontamousson"
+      "parent_qids": [
+        "Q1133"
+      ],
+      "coords": null,
+      "norm": "pontamousson",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Paris": {
       "label": "Paris",
+      "en_label": "Paris",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Seine",
       "p131_region": "Île-de-France",
-      "norm": "paris"
+      "parent_qids": [
+        "Q13917"
+      ],
+      "coords": null,
+      "norm": "paris",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Saint-Denis": {
       "label": "Saint-Denis",
+      "en_label": "Saint-Denis",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Seine",
       "p131_region": "Île-de-France",
-      "norm": "saintdenis"
+      "parent_qids": [
+        "Q13917"
+      ],
+      "coords": null,
+      "norm": "saintdenis",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Vincennes": {
       "label": "Vincennes",
+      "en_label": "Vincennes",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Seine",
       "p131_region": "Île-de-France",
-      "norm": "vincennes"
+      "parent_qids": [
+        "Q13917"
+      ],
+      "coords": null,
+      "norm": "vincennes",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lyon": {
       "label": "Lyon",
+      "en_label": "Lyon",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Rhône",
       "p131_region": "Lyonnais",
-      "norm": "lyon"
+      "parent_qids": [
+        "Q12724"
+      ],
+      "coords": null,
+      "norm": "lyon",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Villefranche": {
       "label": "Villefranche",
+      "en_label": "Villefranche",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Rhône",
       "p131_region": "Lyonnais",
-      "norm": "villefranche"
+      "parent_qids": [
+        "Q12724"
+      ],
+      "coords": null,
+      "norm": "villefranche",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Bordeaux": {
       "label": "Bordeaux",
+      "en_label": "Bordeaux",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Gironde",
       "p131_region": "Guyenne",
-      "norm": "bordeaux"
+      "parent_qids": [
+        "Q3338"
+      ],
+      "coords": null,
+      "norm": "bordeaux",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Libourne": {
       "label": "Libourne",
+      "en_label": "Libourne",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Gironde",
       "p131_region": "Guyenne",
-      "norm": "libourne"
+      "parent_qids": [
+        "Q3338"
+      ],
+      "coords": null,
+      "norm": "libourne",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Lille": {
       "label": "Lille",
+      "en_label": "Lille",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Nord",
       "p131_region": "Flandre",
-      "norm": "lille"
+      "parent_qids": [
+        "Q12709"
+      ],
+      "coords": null,
+      "norm": "lille",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Douai": {
       "label": "Douai",
+      "en_label": "Douai",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Nord",
       "p131_region": "Flandre",
-      "norm": "douai"
+      "parent_qids": [
+        "Q12709"
+      ],
+      "coords": null,
+      "norm": "douai",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Valenciennes": {
       "label": "Valenciennes",
+      "en_label": "Valenciennes",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Nord",
       "p131_region": "Flandre",
-      "norm": "valenciennes"
+      "parent_qids": [
+        "Q12709"
+      ],
+      "coords": null,
+      "norm": "valenciennes",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Grenoble": {
       "label": "Grenoble",
+      "en_label": "Grenoble",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Isère",
       "p131_region": "Dauphiné",
-      "norm": "grenoble"
+      "parent_qids": [
+        "Q3214"
+      ],
+      "coords": null,
+      "norm": "grenoble",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Vienne": {
       "label": "Vienne",
+      "en_label": "Vienne",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Isère",
       "p131_region": "Dauphiné",
-      "norm": "vienne"
+      "parent_qids": [
+        "Q3214"
+      ],
+      "coords": null,
+      "norm": "vienne",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Clermont": {
       "label": "Clermont",
+      "en_label": "Clermont",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Puy-de-Dôme",
       "p131_region": "Auvergne",
-      "norm": "clermont"
+      "parent_qids": [
+        "Q7139"
+      ],
+      "coords": null,
+      "norm": "clermont",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Riom": {
       "label": "Riom",
+      "en_label": "Riom",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Puy-de-Dôme",
       "p131_region": "Auvergne",
-      "norm": "riom"
+      "parent_qids": [
+        "Q7139"
+      ],
+      "coords": null,
+      "norm": "riom",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Marcigny": {
       "label": "Marcigny",
+      "en_label": "Marcigny",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Puy-de-Dôme",
       "p131_region": "Auvergne",
-      "norm": "marcigny"
+      "parent_qids": [
+        "Q7139"
+      ],
+      "coords": null,
+      "norm": "marcigny",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Évreux": {
       "label": "Évreux",
+      "en_label": "Évreux",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Eure",
       "p131_region": "Normandie",
-      "norm": "evreux"
+      "parent_qids": [
+        "Q3319",
+        "Q18677"
+      ],
+      "coords": null,
+      "norm": "evreux",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Bernay": {
       "label": "Bernay",
+      "en_label": "Bernay",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Eure",
       "p131_region": "Normandie",
-      "norm": "bernay"
+      "parent_qids": [
+        "Q3319",
+        "Q18677"
+      ],
+      "coords": null,
+      "norm": "bernay",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Les Andelys": {
       "label": "Les Andelys",
+      "en_label": "Les Andelys",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Eure",
       "p131_region": "Normandie",
-      "norm": "lesandelys"
+      "parent_qids": [
+        "Q3319",
+        "Q18677"
+      ],
+      "coords": null,
+      "norm": "lesandelys",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Corte": {
       "label": "Corte",
+      "en_label": "Corte",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Corse",
       "p131_region": "Corse",
-      "norm": "corte"
+      "parent_qids": [
+        "Q14112"
+      ],
+      "coords": null,
+      "norm": "corte",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Cervione": {
       "label": "Cervione",
+      "en_label": "Cervione",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Corse",
       "p131_region": "Corse",
-      "norm": "cervione"
+      "parent_qids": [
+        "Q14112"
+      ],
+      "coords": null,
+      "norm": "cervione",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Ajaccio": {
       "label": "Ajaccio",
+      "en_label": "Ajaccio",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Corse",
       "p131_region": "Corse",
-      "norm": "ajaccio"
+      "parent_qids": [
+        "Q14112"
+      ],
+      "coords": null,
+      "norm": "ajaccio",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     },
     "Bastia": {
       "label": "Bastia",
+      "en_label": "Bastia",
+      "alt_labels": [],
       "wikidata_qid": null,
+      "geonames_id": null,
+      "whg_id": null,
+      "admin_level": "commune",
       "p131_department": "Corse",
       "p131_region": "Corse",
-      "norm": "bastia"
+      "parent_qids": [
+        "Q14112"
+      ],
+      "coords": null,
+      "norm": "bastia",
+      "historical_names": [],
+      "historical_parents": [],
+      "existence": {
+        "inception": null,
+        "abolished": null
+      },
+      "snapshot_id": "sha256:0a0d48968ab02231"
     }
   }
 }
