@@ -1,0 +1,18 @@
+{
+  "id": "Q-NAME-01b",
+  "ref_query": "RQ-NAME-01",
+  "params": {
+    "nom": "MARTIN"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    69,
+    70,
+    71
+  ],
+  "masked": [
+    69,
+    70,
+    71
+  ]
+}

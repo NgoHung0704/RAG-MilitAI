@@ -1,0 +1,13 @@
+{
+  "id": "Q-SIB-03",
+  "ref_query": "RQ-SIB-03",
+  "params": {
+    "nom_a": "RENARD",
+    "prenom_a": "Louis",
+    "nom_b": "RENARD",
+    "prenom_b": "Mathieu"
+  },
+  "result_kind": "false_merge",
+  "complete": [],
+  "masked": []
+}

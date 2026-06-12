@@ -1,0 +1,11 @@
+{
+  "id": "Q-VERT-02",
+  "ref_query": "RQ-VERT-02",
+  "params": {
+    "nom": "MOREAU",
+    "prenom": "Pierre"
+  },
+  "result_kind": "linkage",
+  "complete": null,
+  "masked": null
+}

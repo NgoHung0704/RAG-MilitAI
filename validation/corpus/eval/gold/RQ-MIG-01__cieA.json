@@ -1,0 +1,18 @@
+{
+  "id": "Q-MIG-01c",
+  "ref_query": "RQ-MIG-01",
+  "params": {
+    "cie": "Cie_A"
+  },
+  "result_kind": "histogram",
+  "complete": {
+    "Côtes-du-Nord": 3,
+    "Finistère": 9,
+    "Morbihan": 3
+  },
+  "masked": {
+    "Côtes-du-Nord": 1,
+    "Finistère": 9,
+    "Morbihan": 2
+  }
+}

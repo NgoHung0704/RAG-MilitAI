@@ -1,0 +1,17 @@
+{
+  "id": "Q-ANTH-02",
+  "ref_query": "RQ-ANTH-02",
+  "params": {
+    "threshold_cm": 170
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    7,
+    8,
+    43,
+    45
+  ],
+  "masked": [
+    43
+  ]
+}

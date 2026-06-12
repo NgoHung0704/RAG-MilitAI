@@ -1,0 +1,41 @@
+{
+  "id": "Q-DIS",
+  "ref_query": "RQ-DIS",
+  "params": {
+    "nom": "BERNARD",
+    "prenom": "Louis"
+  },
+  "result_kind": "disambiguation",
+  "complete": [
+    {
+      "rid": 60,
+      "matricule": "1060",
+      "compagnie": "compagnie de Bourbon",
+      "naissance_lieu": "Lille",
+      "naissance_departement": "Nord"
+    },
+    {
+      "rid": 61,
+      "matricule": "1061",
+      "compagnie": "compagnie de Picardie",
+      "naissance_lieu": "Bordeaux",
+      "naissance_departement": "Gironde"
+    }
+  ],
+  "masked": [
+    {
+      "rid": 60,
+      "matricule": "1060",
+      "compagnie": "compagnie de Bourbon",
+      "naissance_lieu": "Lille",
+      "naissance_departement": "Nord"
+    },
+    {
+      "rid": 61,
+      "matricule": "1061",
+      "compagnie": "compagnie de Picardie",
+      "naissance_lieu": "Bordeaux",
+      "naissance_departement": "Gironde"
+    }
+  ]
+}

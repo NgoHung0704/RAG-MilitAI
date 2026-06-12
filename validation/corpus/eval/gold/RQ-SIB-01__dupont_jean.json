@@ -1,0 +1,16 @@
+{
+  "id": "Q-SIB-01b",
+  "ref_query": "RQ-SIB-01",
+  "params": {
+    "nom": "DUPONT",
+    "prenom": "Jean"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    1,
+    2
+  ],
+  "masked": [
+    1
+  ]
+}

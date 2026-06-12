@@ -1,0 +1,189 @@
+{
+  "families": {
+    "FAM-CLEAN-1": {
+      "members": [
+        0,
+        1,
+        2
+      ],
+      "should_cluster": true,
+      "nom": "DUPONT",
+      "key": {
+        "nom": "DUPONT",
+        "pere_prenom": "Pierre",
+        "mere_nom": "Le Bras",
+        "mere_prenom": "Marie"
+      },
+      "matricules": [
+        "1000",
+        "1001",
+        "1002"
+      ]
+    },
+    "FAM-CLEAN-2": {
+      "members": [
+        12,
+        13
+      ],
+      "should_cluster": true,
+      "nom": "LE GOFF",
+      "key": {
+        "nom": "LE GOFF",
+        "pere_prenom": "Jean",
+        "mere_nom": "Cariou",
+        "mere_prenom": "Jeanne"
+      },
+      "matricules": [
+        "1012",
+        "1013"
+      ]
+    },
+    "FAM-CLEAN-3": {
+      "members": [
+        20,
+        21
+      ],
+      "should_cluster": true,
+      "nom": "SCHMITT",
+      "key": {
+        "nom": "SCHMITT",
+        "pere_prenom": "Nicolas",
+        "mere_nom": "Becker",
+        "mere_prenom": "Anne"
+      },
+      "matricules": [
+        "1020",
+        "1021"
+      ]
+    },
+    "FAM-CLEAN-4": {
+      "members": [
+        41,
+        42
+      ],
+      "should_cluster": true,
+      "nom": "TANGUY",
+      "key": {
+        "nom": "TANGUY",
+        "pere_prenom": "Hervé",
+        "mere_nom": "Salaün",
+        "mere_prenom": "Françoise"
+      },
+      "matricules": [
+        "1041",
+        "1042"
+      ]
+    },
+    "FAM-DECOY-1": {
+      "members": [
+        72,
+        73
+      ],
+      "should_cluster": false,
+      "nom": "RENARD",
+      "key": {
+        "nom": "RENARD",
+        "pere_prenom": "Claude",
+        "mere_nom": "Royer",
+        "mere_prenom": "Barbe"
+      },
+      "matricules": [
+        "1072",
+        "1073"
+      ]
+    },
+    "FAM-NEG-1": {
+      "members": [
+        78,
+        79
+      ],
+      "should_cluster": false,
+      "nom": "MASSON",
+      "key": {
+        "nom": "MASSON",
+        "pere_prenom": "Pierre",
+        "mere_nom": "Durand",
+        "mere_prenom": "Anne"
+      },
+      "matricules": [
+        "1078",
+        "1079"
+      ]
+    },
+    "FAM-PARTIAL-1": {
+      "members": [
+        74,
+        75
+      ],
+      "should_cluster": true,
+      "nom": "FAURE",
+      "key": {
+        "nom": "FAURE",
+        "pere_prenom": "René",
+        "mere_nom": "Thomas",
+        "mere_prenom": "Catherine"
+      },
+      "matricules": [
+        "1074",
+        "1075"
+      ]
+    },
+    "FAM-SINGLEP-1": {
+      "members": [
+        76,
+        77
+      ],
+      "should_cluster": true,
+      "nom": "ROUSSEL",
+      "key": {
+        "nom": "ROUSSEL",
+        "pere_prenom": "Joseph",
+        "mere_nom": "",
+        "mere_prenom": ""
+      },
+      "matricules": [
+        "1076",
+        "1077"
+      ]
+    }
+  },
+  "true_partition": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      20,
+      21
+    ],
+    [
+      41,
+      42
+    ],
+    [
+      72
+    ],
+    [
+      73
+    ],
+    [
+      74,
+      75
+    ],
+    [
+      76,
+      77
+    ],
+    [
+      78
+    ],
+    [
+      79
+    ]
+  ]
+}

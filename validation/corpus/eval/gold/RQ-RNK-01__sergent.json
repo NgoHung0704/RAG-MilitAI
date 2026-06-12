@@ -1,0 +1,30 @@
+{
+  "id": "Q-RNK-01b",
+  "ref_query": "RQ-RNK-01",
+  "params": {
+    "rank": "sergent"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    5,
+    7,
+    9,
+    36,
+    45,
+    57,
+    61,
+    66,
+    71,
+    82,
+    87,
+    133,
+    179
+  ],
+  "masked": [
+    5,
+    9,
+    36,
+    57,
+    66
+  ]
+}

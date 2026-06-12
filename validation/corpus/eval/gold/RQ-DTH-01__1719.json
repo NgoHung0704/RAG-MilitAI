@@ -1,0 +1,21 @@
+{
+  "id": "Q-DTH-01b",
+  "ref_query": "RQ-DTH-01",
+  "params": {
+    "year": 1719
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    5,
+    63,
+    83,
+    97,
+    124,
+    159,
+    161
+  ],
+  "masked": [
+    5,
+    97
+  ]
+}

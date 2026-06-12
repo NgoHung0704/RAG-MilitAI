@@ -1,0 +1,15 @@
+{
+  "id": "Q-REC-01",
+  "ref_query": "RQ-REC-01",
+  "params": {
+    "nom": "CHALET",
+    "prenom": "Jean"
+  },
+  "result_kind": "rag_target",
+  "complete": [
+    62
+  ],
+  "masked": [
+    62
+  ]
+}

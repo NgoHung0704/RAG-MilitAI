@@ -1,0 +1,85 @@
+{
+  "0": {
+    "case": "VERT-TRUE",
+    "son_nom": "DUPONT",
+    "son_prenom": "Jean",
+    "pere_prenom": "Pierre",
+    "son_birth": 1688,
+    "expected_father_rid": 55,
+    "candidates": [
+      {
+        "rid": 55,
+        "father_birth": 1658,
+        "gap": 30,
+        "w": 1.0
+      }
+    ],
+    "masked_son_has_birth": true,
+    "masked_son_has_pere": true
+  },
+  "9": {
+    "case": "VERT-YOUNG",
+    "son_nom": "GIRARD",
+    "son_prenom": "Louis",
+    "pere_prenom": "Mathieu",
+    "son_birth": 1692,
+    "expected_father_rid": 56,
+    "candidates": [
+      {
+        "rid": 56,
+        "father_birth": 1675,
+        "gap": 17,
+        "w": 0.111
+      }
+    ],
+    "masked_son_has_birth": true,
+    "masked_son_has_pere": true
+  },
+  "15": {
+    "case": "VERT-OLD",
+    "son_nom": "ROUX",
+    "son_prenom": "Antoine",
+    "pere_prenom": "Nicolas",
+    "son_birth": 1690,
+    "expected_father_rid": 57,
+    "candidates": [
+      {
+        "rid": 57,
+        "father_birth": 1638,
+        "gap": 52,
+        "w": 0.462
+      }
+    ],
+    "masked_son_has_birth": true,
+    "masked_son_has_pere": true
+  },
+  "29": {
+    "case": "VERT-DECOY",
+    "son_nom": "MOREAU",
+    "son_prenom": "Pierre",
+    "pere_prenom": "Jacques",
+    "son_birth": 1690,
+    "expected_father_rid": null,
+    "candidates": [
+      {
+        "rid": 58,
+        "father_birth": 1692,
+        "gap": -2,
+        "w": 0.0
+      }
+    ],
+    "masked_son_has_birth": false,
+    "masked_son_has_pere": true
+  },
+  "48": {
+    "case": "VERT-ABSENT",
+    "son_nom": "BLANC",
+    "son_prenom": "Jacques",
+    "pere_prenom": "Michel",
+    "son_birth": 1692,
+    "expected_father_rid": null,
+    "candidates": [],
+    "masked_son_has_birth": false,
+    "masked_son_has_pere": true
+  }
+}

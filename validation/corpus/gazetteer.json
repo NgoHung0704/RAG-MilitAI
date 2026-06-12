@@ -1,0 +1,550 @@
+{
+  "snapshot": {
+    "source": "Wikidata",
+    "pinned": "2026-06-11",
+    "geography": "modern",
+    "note": "Illustrative pinned QIDs for modern administrative geography; null where not pinned. Diachronic layer scaffolded, not used in demo."
+  },
+  "regions": {
+    "Bretagne": {
+      "qid": "Q12130",
+      "en": "Brittany",
+      "departments": [
+        "Finistère",
+        "Côtes-du-Nord",
+        "Morbihan"
+      ],
+      "norm_fr": "bretagne",
+      "norm_en": "brittany"
+    },
+    "Alsace": {
+      "qid": "Q1142",
+      "en": "Alsace",
+      "departments": [
+        "Bas-Rhin"
+      ],
+      "norm_fr": "alsace",
+      "norm_en": "alsace"
+    },
+    "Lorraine": {
+      "qid": "Q1133",
+      "en": "Lorraine",
+      "departments": [
+        "Moselle",
+        "Meurthe"
+      ],
+      "norm_fr": "lorraine",
+      "norm_en": "lorraine"
+    },
+    "Île-de-France": {
+      "qid": "Q13917",
+      "en": "Île-de-France",
+      "departments": [
+        "Seine"
+      ],
+      "norm_fr": "iledefrance",
+      "norm_en": "iledefrance"
+    },
+    "Lyonnais": {
+      "qid": null,
+      "en": "Lyonnais",
+      "departments": [
+        "Rhône"
+      ],
+      "norm_fr": "lyonnais",
+      "norm_en": "lyonnais"
+    },
+    "Guyenne": {
+      "qid": null,
+      "en": "Guyenne",
+      "departments": [
+        "Gironde"
+      ],
+      "norm_fr": "guyenne",
+      "norm_en": "guyenne"
+    },
+    "Flandre": {
+      "qid": null,
+      "en": "Flanders",
+      "departments": [
+        "Nord"
+      ],
+      "norm_fr": "flandre",
+      "norm_en": "flanders"
+    },
+    "Dauphiné": {
+      "qid": null,
+      "en": "Dauphiné",
+      "departments": [
+        "Isère"
+      ],
+      "norm_fr": "dauphine",
+      "norm_en": "dauphine"
+    },
+    "Auvergne": {
+      "qid": null,
+      "en": "Auvergne",
+      "departments": [
+        "Puy-de-Dôme"
+      ],
+      "norm_fr": "auvergne",
+      "norm_en": "auvergne"
+    },
+    "Normandie": {
+      "qid": "Q18677",
+      "en": "Normandy",
+      "departments": [
+        "Eure"
+      ],
+      "norm_fr": "normandie",
+      "norm_en": "normandy"
+    },
+    "Corse": {
+      "qid": "Q14112",
+      "en": "Corsica",
+      "departments": [
+        "Corse"
+      ],
+      "norm_fr": "corse",
+      "norm_en": "corsica"
+    }
+  },
+  "departments": {
+    "Finistère": {
+      "label_fr": "Finistère",
+      "label_en": "Finistère",
+      "wikidata_qid": "Q3361",
+      "p131_region": "Bretagne",
+      "norm": "finistere"
+    },
+    "Côtes-du-Nord": {
+      "label_fr": "Côtes-du-Nord",
+      "label_en": "Côtes-d'Armor",
+      "wikidata_qid": "Q3354",
+      "p131_region": "Bretagne",
+      "norm": "cotesdunord"
+    },
+    "Morbihan": {
+      "label_fr": "Morbihan",
+      "label_en": "Morbihan",
+      "wikidata_qid": "Q3331",
+      "p131_region": "Bretagne",
+      "norm": "morbihan"
+    },
+    "Bas-Rhin": {
+      "label_fr": "Bas-Rhin",
+      "label_en": "Bas-Rhin",
+      "wikidata_qid": "Q12722",
+      "p131_region": "Alsace",
+      "norm": "basrhin"
+    },
+    "Moselle": {
+      "label_fr": "Moselle",
+      "label_en": "Moselle",
+      "wikidata_qid": null,
+      "p131_region": "Lorraine",
+      "norm": "moselle"
+    },
+    "Meurthe": {
+      "label_fr": "Meurthe",
+      "label_en": "Meurthe-et-Moselle",
+      "wikidata_qid": null,
+      "p131_region": "Lorraine",
+      "norm": "meurthe"
+    },
+    "Seine": {
+      "label_fr": "Seine",
+      "label_en": "Paris (former Seine)",
+      "wikidata_qid": null,
+      "p131_region": "Île-de-France",
+      "norm": "seine"
+    },
+    "Rhône": {
+      "label_fr": "Rhône",
+      "label_en": "Rhône",
+      "wikidata_qid": "Q12724",
+      "p131_region": "Lyonnais",
+      "norm": "rhone"
+    },
+    "Gironde": {
+      "label_fr": "Gironde",
+      "label_en": "Gironde",
+      "wikidata_qid": "Q3338",
+      "p131_region": "Guyenne",
+      "norm": "gironde"
+    },
+    "Nord": {
+      "label_fr": "Nord",
+      "label_en": "Nord",
+      "wikidata_qid": "Q12709",
+      "p131_region": "Flandre",
+      "norm": "nord"
+    },
+    "Isère": {
+      "label_fr": "Isère",
+      "label_en": "Isère",
+      "wikidata_qid": "Q3214",
+      "p131_region": "Dauphiné",
+      "norm": "isere"
+    },
+    "Puy-de-Dôme": {
+      "label_fr": "Puy-de-Dôme",
+      "label_en": "Puy-de-Dôme",
+      "wikidata_qid": "Q7139",
+      "p131_region": "Auvergne",
+      "norm": "puydedome"
+    },
+    "Eure": {
+      "label_fr": "Eure",
+      "label_en": "Eure",
+      "wikidata_qid": "Q3319",
+      "p131_region": "Normandie",
+      "norm": "eure"
+    },
+    "Corse": {
+      "label_fr": "Corse",
+      "label_en": "Corse",
+      "wikidata_qid": null,
+      "p131_region": "Corse",
+      "norm": "corse"
+    }
+  },
+  "communes": {
+    "Quimper": {
+      "label": "Quimper",
+      "wikidata_qid": null,
+      "p131_department": "Finistère",
+      "p131_region": "Bretagne",
+      "norm": "quimper"
+    },
+    "Brest": {
+      "label": "Brest",
+      "wikidata_qid": null,
+      "p131_department": "Finistère",
+      "p131_region": "Bretagne",
+      "norm": "brest"
+    },
+    "Landerneau": {
+      "label": "Landerneau",
+      "wikidata_qid": null,
+      "p131_department": "Finistère",
+      "p131_region": "Bretagne",
+      "norm": "landerneau"
+    },
+    "Morlaix": {
+      "label": "Morlaix",
+      "wikidata_qid": null,
+      "p131_department": "Finistère",
+      "p131_region": "Bretagne",
+      "norm": "morlaix"
+    },
+    "Quimperlé": {
+      "label": "Quimperlé",
+      "wikidata_qid": null,
+      "p131_department": "Finistère",
+      "p131_region": "Bretagne",
+      "norm": "quimperle"
+    },
+    "Le Faou": {
+      "label": "Le Faou",
+      "wikidata_qid": null,
+      "p131_department": "Finistère",
+      "p131_region": "Bretagne",
+      "norm": "lefaou"
+    },
+    "Saint-Brieuc": {
+      "label": "Saint-Brieuc",
+      "wikidata_qid": null,
+      "p131_department": "Côtes-du-Nord",
+      "p131_region": "Bretagne",
+      "norm": "saintbrieuc"
+    },
+    "Dinan": {
+      "label": "Dinan",
+      "wikidata_qid": null,
+      "p131_department": "Côtes-du-Nord",
+      "p131_region": "Bretagne",
+      "norm": "dinan"
+    },
+    "Lannion": {
+      "label": "Lannion",
+      "wikidata_qid": null,
+      "p131_department": "Côtes-du-Nord",
+      "p131_region": "Bretagne",
+      "norm": "lannion"
+    },
+    "Guingamp": {
+      "label": "Guingamp",
+      "wikidata_qid": null,
+      "p131_department": "Côtes-du-Nord",
+      "p131_region": "Bretagne",
+      "norm": "guingamp"
+    },
+    "Vannes": {
+      "label": "Vannes",
+      "wikidata_qid": null,
+      "p131_department": "Morbihan",
+      "p131_region": "Bretagne",
+      "norm": "vannes"
+    },
+    "Lorient": {
+      "label": "Lorient",
+      "wikidata_qid": null,
+      "p131_department": "Morbihan",
+      "p131_region": "Bretagne",
+      "norm": "lorient"
+    },
+    "Auray": {
+      "label": "Auray",
+      "wikidata_qid": null,
+      "p131_department": "Morbihan",
+      "p131_region": "Bretagne",
+      "norm": "auray"
+    },
+    "Pontivy": {
+      "label": "Pontivy",
+      "wikidata_qid": null,
+      "p131_department": "Morbihan",
+      "p131_region": "Bretagne",
+      "norm": "pontivy"
+    },
+    "Strasbourg": {
+      "label": "Strasbourg",
+      "wikidata_qid": null,
+      "p131_department": "Bas-Rhin",
+      "p131_region": "Alsace",
+      "norm": "strasbourg"
+    },
+    "Haguenau": {
+      "label": "Haguenau",
+      "wikidata_qid": null,
+      "p131_department": "Bas-Rhin",
+      "p131_region": "Alsace",
+      "norm": "haguenau"
+    },
+    "Saverne": {
+      "label": "Saverne",
+      "wikidata_qid": null,
+      "p131_department": "Bas-Rhin",
+      "p131_region": "Alsace",
+      "norm": "saverne"
+    },
+    "Sélestat": {
+      "label": "Sélestat",
+      "wikidata_qid": null,
+      "p131_department": "Bas-Rhin",
+      "p131_region": "Alsace",
+      "norm": "selestat"
+    },
+    "Metz": {
+      "label": "Metz",
+      "wikidata_qid": null,
+      "p131_department": "Moselle",
+      "p131_region": "Lorraine",
+      "norm": "metz"
+    },
+    "Thionville": {
+      "label": "Thionville",
+      "wikidata_qid": null,
+      "p131_department": "Moselle",
+      "p131_region": "Lorraine",
+      "norm": "thionville"
+    },
+    "Sarreguemines": {
+      "label": "Sarreguemines",
+      "wikidata_qid": null,
+      "p131_department": "Moselle",
+      "p131_region": "Lorraine",
+      "norm": "sarreguemines"
+    },
+    "Brieulles-sur-Meuse": {
+      "label": "Brieulles-sur-Meuse",
+      "wikidata_qid": null,
+      "p131_department": "Moselle",
+      "p131_region": "Lorraine",
+      "norm": "brieullessurmeuse"
+    },
+    "Nancy": {
+      "label": "Nancy",
+      "wikidata_qid": null,
+      "p131_department": "Meurthe",
+      "p131_region": "Lorraine",
+      "norm": "nancy"
+    },
+    "Lunéville": {
+      "label": "Lunéville",
+      "wikidata_qid": null,
+      "p131_department": "Meurthe",
+      "p131_region": "Lorraine",
+      "norm": "luneville"
+    },
+    "Toul": {
+      "label": "Toul",
+      "wikidata_qid": null,
+      "p131_department": "Meurthe",
+      "p131_region": "Lorraine",
+      "norm": "toul"
+    },
+    "Pont-à-Mousson": {
+      "label": "Pont-à-Mousson",
+      "wikidata_qid": null,
+      "p131_department": "Meurthe",
+      "p131_region": "Lorraine",
+      "norm": "pontamousson"
+    },
+    "Paris": {
+      "label": "Paris",
+      "wikidata_qid": null,
+      "p131_department": "Seine",
+      "p131_region": "Île-de-France",
+      "norm": "paris"
+    },
+    "Saint-Denis": {
+      "label": "Saint-Denis",
+      "wikidata_qid": null,
+      "p131_department": "Seine",
+      "p131_region": "Île-de-France",
+      "norm": "saintdenis"
+    },
+    "Vincennes": {
+      "label": "Vincennes",
+      "wikidata_qid": null,
+      "p131_department": "Seine",
+      "p131_region": "Île-de-France",
+      "norm": "vincennes"
+    },
+    "Lyon": {
+      "label": "Lyon",
+      "wikidata_qid": null,
+      "p131_department": "Rhône",
+      "p131_region": "Lyonnais",
+      "norm": "lyon"
+    },
+    "Villefranche": {
+      "label": "Villefranche",
+      "wikidata_qid": null,
+      "p131_department": "Rhône",
+      "p131_region": "Lyonnais",
+      "norm": "villefranche"
+    },
+    "Bordeaux": {
+      "label": "Bordeaux",
+      "wikidata_qid": null,
+      "p131_department": "Gironde",
+      "p131_region": "Guyenne",
+      "norm": "bordeaux"
+    },
+    "Libourne": {
+      "label": "Libourne",
+      "wikidata_qid": null,
+      "p131_department": "Gironde",
+      "p131_region": "Guyenne",
+      "norm": "libourne"
+    },
+    "Lille": {
+      "label": "Lille",
+      "wikidata_qid": null,
+      "p131_department": "Nord",
+      "p131_region": "Flandre",
+      "norm": "lille"
+    },
+    "Douai": {
+      "label": "Douai",
+      "wikidata_qid": null,
+      "p131_department": "Nord",
+      "p131_region": "Flandre",
+      "norm": "douai"
+    },
+    "Valenciennes": {
+      "label": "Valenciennes",
+      "wikidata_qid": null,
+      "p131_department": "Nord",
+      "p131_region": "Flandre",
+      "norm": "valenciennes"
+    },
+    "Grenoble": {
+      "label": "Grenoble",
+      "wikidata_qid": null,
+      "p131_department": "Isère",
+      "p131_region": "Dauphiné",
+      "norm": "grenoble"
+    },
+    "Vienne": {
+      "label": "Vienne",
+      "wikidata_qid": null,
+      "p131_department": "Isère",
+      "p131_region": "Dauphiné",
+      "norm": "vienne"
+    },
+    "Clermont": {
+      "label": "Clermont",
+      "wikidata_qid": null,
+      "p131_department": "Puy-de-Dôme",
+      "p131_region": "Auvergne",
+      "norm": "clermont"
+    },
+    "Riom": {
+      "label": "Riom",
+      "wikidata_qid": null,
+      "p131_department": "Puy-de-Dôme",
+      "p131_region": "Auvergne",
+      "norm": "riom"
+    },
+    "Marcigny": {
+      "label": "Marcigny",
+      "wikidata_qid": null,
+      "p131_department": "Puy-de-Dôme",
+      "p131_region": "Auvergne",
+      "norm": "marcigny"
+    },
+    "Évreux": {
+      "label": "Évreux",
+      "wikidata_qid": null,
+      "p131_department": "Eure",
+      "p131_region": "Normandie",
+      "norm": "evreux"
+    },
+    "Bernay": {
+      "label": "Bernay",
+      "wikidata_qid": null,
+      "p131_department": "Eure",
+      "p131_region": "Normandie",
+      "norm": "bernay"
+    },
+    "Les Andelys": {
+      "label": "Les Andelys",
+      "wikidata_qid": null,
+      "p131_department": "Eure",
+      "p131_region": "Normandie",
+      "norm": "lesandelys"
+    },
+    "Corte": {
+      "label": "Corte",
+      "wikidata_qid": null,
+      "p131_department": "Corse",
+      "p131_region": "Corse",
+      "norm": "corte"
+    },
+    "Cervione": {
+      "label": "Cervione",
+      "wikidata_qid": null,
+      "p131_department": "Corse",
+      "p131_region": "Corse",
+      "norm": "cervione"
+    },
+    "Ajaccio": {
+      "label": "Ajaccio",
+      "wikidata_qid": null,
+      "p131_department": "Corse",
+      "p131_region": "Corse",
+      "norm": "ajaccio"
+    },
+    "Bastia": {
+      "label": "Bastia",
+      "wikidata_qid": null,
+      "p131_department": "Corse",
+      "p131_region": "Corse",
+      "norm": "bastia"
+    }
+  }
+}

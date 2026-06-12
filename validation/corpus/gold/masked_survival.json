@@ -1,0 +1,412 @@
+{
+  "0": {
+    "tags": [
+      "clean_family",
+      "vert_son"
+    ],
+    "tier": "A",
+    "nom": "DUPONT",
+    "prenom": "Jean"
+  },
+  "1": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "A",
+    "nom": "DUPONT",
+    "prenom": "Mathieu"
+  },
+  "2": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "B",
+    "nom": "DUPONT",
+    "prenom": "Guillaume"
+  },
+  "4": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "A",
+    "nom": "ROUSSEL",
+    "prenom": "Hervé"
+  },
+  "5": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "A",
+    "nom": "DELORME",
+    "prenom": "Guillaume"
+  },
+  "6": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "DUVAL",
+    "prenom": "Mathurin"
+  },
+  "7": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "GAILLARD",
+    "prenom": "Étienne"
+  },
+  "8": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "GARNIER",
+    "prenom": "Vincent"
+  },
+  "9": {
+    "tags": [
+      "vert_son"
+    ],
+    "tier": "A",
+    "nom": "GIRARD",
+    "prenom": "Louis"
+  },
+  "12": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "B",
+    "nom": "LE GOFF",
+    "prenom": "René"
+  },
+  "13": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "B",
+    "nom": "LE GOFF",
+    "prenom": "Olivier"
+  },
+  "15": {
+    "tags": [
+      "stature",
+      "vert_son"
+    ],
+    "tier": "A",
+    "nom": "ROUX",
+    "prenom": "Antoine"
+  },
+  "16": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "WEBER",
+    "prenom": "Nicolas"
+  },
+  "17": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "B",
+    "nom": "BERTRAND",
+    "prenom": "Joseph"
+  },
+  "18": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "BARBIER",
+    "prenom": "Charles"
+  },
+  "19": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "CHARPENTIER",
+    "prenom": "Olivier"
+  },
+  "20": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "A",
+    "nom": "SCHMITT",
+    "prenom": "Joseph"
+  },
+  "21": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "A",
+    "nom": "SCHMITT",
+    "prenom": "Antoine"
+  },
+  "29": {
+    "tags": [
+      "vert_son"
+    ],
+    "tier": "B",
+    "nom": "MOREAU",
+    "prenom": "Pierre"
+  },
+  "41": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "A",
+    "nom": "TANGUY",
+    "prenom": "Hervé"
+  },
+  "42": {
+    "tags": [
+      "clean_family"
+    ],
+    "tier": "A",
+    "nom": "TANGUY",
+    "prenom": "Yves"
+  },
+  "43": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "A",
+    "nom": "GARNIER",
+    "prenom": "Nicolas"
+  },
+  "44": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "DE BRIS",
+    "prenom": "Joseph"
+  },
+  "45": {
+    "tags": [
+      "stature"
+    ],
+    "tier": "C",
+    "nom": "NORMAND",
+    "prenom": "Sébastien"
+  },
+  "48": {
+    "tags": [
+      "vert_son"
+    ],
+    "tier": "B",
+    "nom": "BLANC",
+    "prenom": "Jacques"
+  },
+  "55": {
+    "tags": [
+      "vert_father"
+    ],
+    "tier": "A",
+    "nom": "DUPONT",
+    "prenom": "Pierre"
+  },
+  "56": {
+    "tags": [
+      "vert_father"
+    ],
+    "tier": "A",
+    "nom": "GIRARD",
+    "prenom": "Mathieu"
+  },
+  "57": {
+    "tags": [
+      "vert_father"
+    ],
+    "tier": "A",
+    "nom": "ROUX",
+    "prenom": "Nicolas"
+  },
+  "58": {
+    "tags": [
+      "vert_father"
+    ],
+    "tier": "B",
+    "nom": "MOREAU",
+    "prenom": "Jacques"
+  },
+  "60": {
+    "tags": [
+      "homonym"
+    ],
+    "tier": "B",
+    "nom": "BERNARD",
+    "prenom": "Louis"
+  },
+  "61": {
+    "tags": [
+      "homonym"
+    ],
+    "tier": "B",
+    "nom": "BERNARD",
+    "prenom": "Louis"
+  },
+  "62": {
+    "tags": [
+      "record_probe"
+    ],
+    "tier": "B",
+    "nom": "CHALET",
+    "prenom": "Jean"
+  },
+  "63": {
+    "tags": [
+      "partial_date"
+    ],
+    "tier": "B",
+    "nom": "POIRIER",
+    "prenom": "Julien"
+  },
+  "64": {
+    "tags": [
+      "partial_date"
+    ],
+    "tier": "B",
+    "nom": "FABLET",
+    "prenom": "Honoré"
+  },
+  "65": {
+    "tags": [
+      "accented_place"
+    ],
+    "tier": "C",
+    "nom": "DELORME",
+    "prenom": "Claude"
+  },
+  "66": {
+    "tags": [
+      "corse"
+    ],
+    "tier": "A",
+    "nom": "DARDARE",
+    "prenom": "Mathurin"
+  },
+  "67": {
+    "tags": [
+      "corse"
+    ],
+    "tier": "B",
+    "nom": "ROPARS",
+    "prenom": "Olivier"
+  },
+  "68": {
+    "tags": [
+      "unans_probe"
+    ],
+    "tier": "C",
+    "nom": "CHALET",
+    "prenom": "Pierre"
+  },
+  "72": {
+    "tags": [
+      "decoy_family"
+    ],
+    "tier": "B",
+    "nom": "RENARD",
+    "prenom": "Louis"
+  },
+  "73": {
+    "tags": [
+      "decoy_family"
+    ],
+    "tier": "B",
+    "nom": "RENARD",
+    "prenom": "Mathieu"
+  },
+  "74": {
+    "tags": [
+      "partial_family"
+    ],
+    "tier": "B",
+    "nom": "FAURE",
+    "prenom": "André"
+  },
+  "75": {
+    "tags": [
+      "partial_family"
+    ],
+    "tier": "B",
+    "nom": "FAURE",
+    "prenom": "Julien"
+  },
+  "76": {
+    "tags": [
+      "singleparent_family"
+    ],
+    "tier": "B",
+    "nom": "ROUSSEL",
+    "prenom": "Pierre"
+  },
+  "77": {
+    "tags": [
+      "singleparent_family"
+    ],
+    "tier": "B",
+    "nom": "ROUSSEL",
+    "prenom": "Jean"
+  },
+  "78": {
+    "tags": [
+      "neg_family"
+    ],
+    "tier": "B",
+    "nom": "MASSON",
+    "prenom": "Louis"
+  },
+  "79": {
+    "tags": [
+      "neg_family"
+    ],
+    "tier": "B",
+    "nom": "MASSON",
+    "prenom": "François"
+  },
+  "80": {
+    "tags": [
+      "trajectory"
+    ],
+    "tier": "A",
+    "nom": "LEROY",
+    "prenom": "Guillaume"
+  },
+  "81": {
+    "tags": [
+      "trajectory"
+    ],
+    "tier": "A",
+    "nom": "MOREL",
+    "prenom": "François"
+  },
+  "82": {
+    "tags": [
+      "trajectory"
+    ],
+    "tier": "B",
+    "nom": "KERVELLA",
+    "prenom": "Antoine"
+  },
+  "83": {
+    "tags": [
+      "trajectory"
+    ],
+    "tier": "C",
+    "nom": "PRIGENT",
+    "prenom": "Gabriel"
+  },
+  "84": {
+    "tags": [
+      "trajectory"
+    ],
+    "tier": "B",
+    "nom": "SCHMITT",
+    "prenom": "Sébastien"
+  }
+}

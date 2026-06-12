@@ -1,0 +1,11 @@
+{
+  "id": "Q-VERT-03",
+  "ref_query": "RQ-VERT-03",
+  "params": {
+    "nom": "GIRARD",
+    "prenom": "Louis"
+  },
+  "result_kind": "linkage",
+  "complete": 56,
+  "masked": 56
+}

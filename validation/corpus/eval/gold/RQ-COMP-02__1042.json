@@ -1,0 +1,14 @@
+{
+  "id": "Q-COMP-02",
+  "ref_query": "RQ-COMP-02",
+  "params": {
+    "matricule": 1042
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    42
+  ],
+  "masked": [
+    42
+  ]
+}

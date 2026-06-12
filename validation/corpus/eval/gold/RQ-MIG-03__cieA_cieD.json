@@ -1,0 +1,35 @@
+{
+  "id": "Q-MIG-03",
+  "ref_query": "RQ-MIG-03",
+  "params": {
+    "cie1": "Cie_A",
+    "cie2": "Cie_D"
+  },
+  "result_kind": "histogram_pair",
+  "complete": {
+    "Cie_A": {
+      "Côtes-du-Nord": 3,
+      "Finistère": 9,
+      "Morbihan": 3
+    },
+    "Cie_D": {
+      "Eure": 2,
+      "Finistère": 4,
+      "Morbihan": 3,
+      "Seine": 5
+    }
+  },
+  "masked": {
+    "Cie_A": {
+      "Côtes-du-Nord": 1,
+      "Finistère": 9,
+      "Morbihan": 2
+    },
+    "Cie_D": {
+      "Eure": 1,
+      "Finistère": 4,
+      "Morbihan": 3,
+      "Seine": 4
+    }
+  }
+}

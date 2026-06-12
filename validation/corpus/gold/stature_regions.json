@@ -1,0 +1,47 @@
+{
+  "cohort": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    15,
+    16,
+    17,
+    18,
+    19,
+    43,
+    44,
+    45
+  ],
+  "threshold_cm": 170.0,
+  "region_means_complete": {
+    "Bretagne": {
+      "n": 8,
+      "mean_cm": 169.8
+    },
+    "Alsace": {
+      "n": 5,
+      "mean_cm": 164.2
+    }
+  },
+  "region_means_masked": {
+    "Bretagne": {
+      "n": 3,
+      "mean_cm": 168.9
+    },
+    "Alsace": {
+      "n": 1,
+      "mean_cm": 162.4
+    }
+  },
+  "taller_than_threshold_complete": [
+    7,
+    8,
+    43,
+    45
+  ],
+  "taller_than_threshold_masked": [
+    43
+  ]
+}

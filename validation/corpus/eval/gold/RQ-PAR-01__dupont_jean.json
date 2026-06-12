@@ -1,0 +1,25 @@
+{
+  "id": "Q-PAR-01b",
+  "ref_query": "RQ-PAR-01",
+  "params": {
+    "nom": "DUPONT",
+    "prenom": "Jean"
+  },
+  "result_kind": "record_fields",
+  "complete": [
+    {
+      "rid": 0,
+      "pere_prenom": "Pierre",
+      "mere_nom": "Le Bras",
+      "mere_prenom": "Marie"
+    }
+  ],
+  "masked": [
+    {
+      "rid": 0,
+      "pere_prenom": "Pierre",
+      "mere_nom": "Le Bras",
+      "mere_prenom": "Marie"
+    }
+  ]
+}

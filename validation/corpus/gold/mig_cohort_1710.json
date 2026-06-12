@@ -1,0 +1,31 @@
+{
+  "year": 1710,
+  "members": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    11,
+    14,
+    16,
+    29,
+    34,
+    45,
+    49
+  ],
+  "birth_department_complete": {
+    "Bas-Rhin": 1,
+    "Côtes-du-Nord": 1,
+    "Finistère": 5,
+    "Gironde": 1,
+    "Morbihan": 2,
+    "Seine": 2
+  },
+  "birth_department_masked": {
+    "Finistère": 4,
+    "Gironde": 1,
+    "Morbihan": 1,
+    "Seine": 1
+  }
+}

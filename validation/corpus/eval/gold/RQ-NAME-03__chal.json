@@ -1,0 +1,16 @@
+{
+  "id": "Q-NAME-03",
+  "ref_query": "RQ-NAME-03",
+  "params": {
+    "frag": "CHAL"
+  },
+  "result_kind": "rid_set",
+  "complete": [
+    62,
+    68
+  ],
+  "masked": [
+    62,
+    68
+  ]
+}

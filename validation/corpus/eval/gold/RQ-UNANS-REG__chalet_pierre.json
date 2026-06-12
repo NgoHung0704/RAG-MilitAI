@@ -1,0 +1,16 @@
+{
+  "id": "Q-UNANS-REG",
+  "ref_query": "RQ-UNANS-REG",
+  "params": {
+    "nom": "CHALET",
+    "prenom": "Pierre"
+  },
+  "result_kind": "record_fields",
+  "complete": [
+    {
+      "rid": 68,
+      "regiment": "régiment de Picardie"
+    }
+  ],
+  "masked": []
+}

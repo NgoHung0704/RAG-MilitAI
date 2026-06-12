@@ -1,0 +1,29 @@
+{
+  "id": "Q-SIB-02",
+  "ref_query": "RQ-SIB-02",
+  "params": {
+    "cie": "Cie_A"
+  },
+  "result_kind": "partition",
+  "complete": {
+    "G0": [
+      0,
+      1,
+      2
+    ],
+    "G1": [
+      12,
+      13
+    ]
+  },
+  "masked": {
+    "G0": [
+      0,
+      1
+    ],
+    "G1": [
+      12,
+      13
+    ]
+  }
+}
