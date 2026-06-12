@@ -13,7 +13,8 @@ Contract for the enrichment thread: add coordinates to any ``regions`` /
 all are accepted::
 
     "lat": 48.25, "lon": -4.0          # or "lng"
-    "coordinates": [lon, lat]          # GeoJSON order (lon first)
+    "coords": [lon, lat]               # Toponym Spec §1 field name, GeoJSON order
+    "coordinates": [lon, lat]          # GeoJSON order (lon first); alias of "coords"
     "coordinates": {"lat": .., "lon": ..}
     "coord": "lat,lon"
 
@@ -92,7 +93,8 @@ def _extract_coords(entry: dict) -> tuple[float, float] | None:
     lon = entry.get("lon", entry.get("lng"))
     if lat is not None and lon is not None:
         return float(lat), float(lon)
-    coords = entry.get("coordinates", entry.get("coord"))
+    # "coords" is the Toponym Spec §1 field name; "coordinates"/"coord" are aliases.
+    coords = entry.get("coords", entry.get("coordinates", entry.get("coord")))
     if isinstance(coords, (list, tuple)) and len(coords) == 2:
         return float(coords[1]), float(coords[0])  # GeoJSON [lon, lat]
     if isinstance(coords, dict) and "lat" in coords:
