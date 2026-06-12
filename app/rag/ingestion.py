@@ -229,6 +229,7 @@ def ingest_csv(
     persist_dir: str,
     model_name: str,
     batch_size: int = 500,
+    collection_name: str = "soldiers",
 ) -> int:
     """
     Read *csv_path*, embed each row, and upsert into ChromaDB.
@@ -240,7 +241,7 @@ def ingest_csv(
     ef = SentenceTransformerEmbeddingFunction(model_name=model_name)
     client = chromadb.PersistentClient(path=persist_dir)
     collection = client.get_or_create_collection(
-        name="soldiers",
+        name=collection_name,
         embedding_function=ef,
     )
 

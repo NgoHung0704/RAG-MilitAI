@@ -13,6 +13,7 @@ dependencies = [
     "openai",
     "python-dotenv",
     "tqdm",
+    "pyyaml>=6.0.3",
 ]
 
 [tool.uv]

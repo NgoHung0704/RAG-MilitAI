@@ -1,0 +1,118 @@
+# MilitAI Showcase example registry (Demo Interface Spec v0.2 §6)
+#
+# Each entry layers presentation metadata over a question in
+# validation/corpus/questions.jsonl (joined by question_id) and its gold in
+# validation/corpus/gold/answers.json. `tour_order` drives the guided tour;
+# `use_case` drives the gallery grouping. Narratives are placeholders for the
+# presenter to tune (spec §11).
+
+- id: SHOW-GEN-SIB
+  use_case: genealogy
+  title: "Reconstruct a family"
+  question_id: Q-SIB-01
+  run_modes: [nl2cypher, graph]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 1
+  narrative: >
+    Ask for DUPONT Jean's brothers. The system traverses shared parent nodes
+    and applies birthplace + birth-year corroboration to assemble the sibling
+    set — the planted family {0,1,2}.
+
+- id: SHOW-GEN-DECOY
+  use_case: genealogy
+  title: "The decoy that must NOT merge"
+  question_id: Q-SIB-03
+  run_modes: [nl2cypher, graph]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 2
+  narrative: >
+    Does RENARD Louis have brothers? A naive name match would wrongly merge a
+    same-surname decoy (different birthplace, mother, and an implausible year
+    gap). The corroboration rule correctly returns no brothers — the empty set.
+
+- id: SHOW-GEN-FAMILIES
+  use_case: genealogy
+  title: "All families in a company"
+  question_id: Q-SIB-02
+  run_modes: [graph]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 3
+  narrative: >
+    Partition company A into corroborated sibling clusters. The gold has two
+    planted families; under MASKED a missing field can shrink a cluster.
+
+- id: SHOW-GEN-VERT
+  use_case: genealogy
+  title: "Link a son to his father's record"
+  question_id: Q-VERT-03
+  run_modes: [nl2cypher, graph]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 4
+  narrative: >
+    Find GIRARD Louis's father record. Candidate fathers are ranked by the soft
+    generational-gap weight; the ~17-year (young-admit) gap still scores, so the
+    true father (record #56) is admitted — a softened-floor stress case.
+
+- id: SHOW-MIG-GEO
+  use_case: migration
+  title: "Recruitment geography"
+  question_id: Q-MIG-01
+  run_modes: [nl2cypher, template]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 5
+  narrative: >
+    Where were company A's soldiers born? A birth-department histogram. Under
+    MASKED, blanked birthplaces thin the distribution (Côtes-du-Nord 3 -> 1) —
+    the cost of annotation made visual.
+
+- id: SHOW-MIG-TOPO
+  use_case: migration
+  title: "Toponym resolution (FR / EN)"
+  question_id: Q-XLING-01
+  run_modes: [nl2cypher]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 6
+  narrative: >
+    "Born in Bretagne" / "born in Brittany" must resolve to the same departments
+    across languages. The system folds the region to its member departments and
+    returns the same soldier set either way.
+
+- id: SHOW-ANTH
+  use_case: stature
+  title: "Stature by region"
+  question_id: Q-ANTH-01
+  run_modes: [nl2cypher, rag]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 7
+  narrative: >
+    Mean height of soldiers born in Bretagne. The aggregate carries its sample
+    size n; under MASKED far fewer heights survive (n 8 -> 3), so the mean rests
+    on much thinner evidence.
+
+- id: SHOW-DEG-DEATH
+  use_case: degradation
+  title: "Degradation: who died in 1720?"
+  question_id: Q-DTH-01
+  run_modes: [nl2cypher, template]
+  datasets: [synth_complete, synth_masked]
+  compare: true
+  reveal_gold: true
+  tour_order: 8
+  narrative: >
+    A deliberate degradation example. COMPLETE recovers all five 1720 deaths;
+    MASKED, with most death years blanked, finds only one. Reveal shows the gold
+    — COMPLETE matches it, MASKED falls short. The degradation IS the reveal.

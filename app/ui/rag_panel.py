@@ -10,7 +10,7 @@ from openai import OpenAI
 from app.rag.chain import answer_with_rag
 
 
-def render(client: OpenAI | None, config) -> None:
+def render(client: OpenAI | None, config, collection_name: str = "soldiers") -> None:
     st.header("RAG — Ask a question")
     st.caption(
         "Ask anything about the soldiers in natural language. "
@@ -44,6 +44,7 @@ def render(client: OpenAI | None, config) -> None:
                     persist_dir=config.CHROMA_PERSIST_DIR,
                     model_name=config.EMBEDDING_MODEL,
                     k=config.RAG_TOP_K,
+                    collection_name=collection_name,
                 )
         except FileNotFoundError as exc:
             st.error(
