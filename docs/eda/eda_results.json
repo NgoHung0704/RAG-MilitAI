@@ -1,0 +1,887 @@
+{
+  "tool": "scripts/eda.py",
+  "datasets": {
+    "real": {
+      "dataset": "real",
+      "path": "data/full_unified_annotations.csv",
+      "rows": 82821,
+      "columns": 77,
+      "fill_rates_all": {
+        "double_page": 100.0,
+        "section": 100.0,
+        "registre": 100.0,
+        "numero_page": 100.0,
+        "nom": 100.0,
+        "prenom": 99.7,
+        "compagnie": 99.3,
+        "double_page_url": 97.4,
+        "matricule": 83.6,
+        "ark_url": 83.5,
+        "enrolement_annee": 82.9,
+        "enrolement_mois": 81.4,
+        "enrolement_jour": 81.3,
+        "surnom": 78.4,
+        "naissance_lieu": 77.3,
+        "naissance_pays": 73.7,
+        "naissance_juridiction": 68.0,
+        "naissance_departement": 65.7,
+        "pere_prenom": 50.8,
+        "mere_prenom": 45.2,
+        "mere_nom": 42.3,
+        "deces_annee": 26.8,
+        "deces_jour": 26.6,
+        "deces_mois": 26.6,
+        "grade_final": 25.3,
+        "naissance_annee": 21.4,
+        "naissance_jour": 19.6,
+        "naissance_mois": 19.6,
+        "source_image": 16.4,
+        "side": 16.4,
+        "line": 16.4,
+        "pere_decede": 14.6,
+        "mere_decedee": 14.6,
+        "regiment": 14.6,
+        "desertion": 14.6,
+        "invalide": 14.6,
+        "ne_au_regiment": 14.6,
+        "age": 12.8,
+        "naissance_region": 11.4,
+        "bataillon": 11.3,
+        "domicile_lieu": 5.1,
+        "domicile_departement": 4.9,
+        "profession": 4.3,
+        "pere_profession": 3.8,
+        "mariage_annee": 3.1,
+        "mariage_jour": 3.0,
+        "mariage_mois": 3.0,
+        "mariage_lieu": 3.0,
+        "mariage_departement": 3.0,
+        "mere_autre_nom": 3.0,
+        "nom_autre": 2.9,
+        "pied": 2.4,
+        "pouce": 2.0,
+        "passe": 1.8,
+        "desertion_annee": 1.6,
+        "desertion_mois": 1.4,
+        "desertion_jour": 1.3,
+        "grade_1": 1.0,
+        "ligne": 0.9,
+        "sort": 0.9,
+        "taille_metre": 0.8,
+        "mere_autre_prenom": 0.8,
+        "deces_lieu": 0.5,
+        "deces_commune": 0.5,
+        "pere_autre_prenom": 0.4,
+        "deces_departement": 0.3,
+        "deces_pays": 0.2,
+        "grade_2": 0.2,
+        "grade_3": 0.1,
+        "commentaires": 0.1,
+        "domicile_pays": 0.0,
+        "naissance_pieve": 0.0,
+        "mariage_pays": 0.0,
+        "page_bms": 0.0,
+        "renvoi_jour": 0.0,
+        "renvoi_mois": 0.0,
+        "renvoi_annee": 0.0
+      },
+      "fill_rates_focus": {
+        "nom": 100.0,
+        "prenom": 99.7,
+        "compagnie": 99.3,
+        "matricule": 83.6,
+        "enrolement_annee": 82.9,
+        "surnom": 78.4,
+        "naissance_lieu": 77.3,
+        "naissance_pays": 73.7,
+        "naissance_departement": 65.7,
+        "naissance_region": 11.4,
+        "pere_prenom": 50.8,
+        "mere_prenom": 45.2,
+        "mere_nom": 42.3,
+        "deces_annee": 26.8,
+        "grade_final": 25.3,
+        "naissance_annee": 21.4,
+        "regiment": 14.6,
+        "age": 12.8,
+        "profession": 4.3,
+        "taille_metre": 0.8,
+        "deces_lieu": 0.5,
+        "deces_departement": 0.3
+      },
+      "cardinality": {
+        "regiment": 4,
+        "compagnie": 1094,
+        "naissance_departement": 225,
+        "naissance_pays": 71,
+        "naissance_region": 275,
+        "grade_final": 224,
+        "prenom": 5670,
+        "nom": 46157,
+        "profession": 237
+      },
+      "top_values": {
+        "regiment": {
+          "Régiment du Limousin": 5419,
+          "Régiment de Talaru": 5180,
+          "Régiment du Limousin, 3e bataillon": 850,
+          "Régiment d'infanterie de Royal-Corse": 643
+        },
+        "compagnie": {
+          "compagnie Colonelle": 3979,
+          "compagnie de la lieutenance Colonelle": 2778,
+          "compagnie de grenadiers": 2313,
+          "compagnie Mestre de camp": 2013,
+          "compagnie de Colonelle Générale": 1271,
+          "compagnie d'Etat-Major": 554,
+          "compagnie de chasseurs": 469,
+          "Colonelle": 390,
+          "compagnie de La Bucaille": 324,
+          "compagnie Darrau": 318
+        },
+        "naissance_departement": {
+          "75": 2840,
+          "57": 2227,
+          "59": 1756,
+          "54": 1674,
+          "62": 1331,
+          "30": 1267,
+          "67": 1245,
+          "80": 1231,
+          "76": 1219,
+          "2": 1194
+        },
+        "naissance_pays": {
+          "France": 50066,
+          "Allemagne": 4048,
+          "Belgique": 2657,
+          "Italie": 798,
+          "Irlande ou Eire": 661,
+          "Ecosse": 647,
+          "Suisse": 557,
+          "Angleterre": 275,
+          "Espagne": 265,
+          "Luxembourg": 230
+        },
+        "naissance_region": {
+          "Normandie": 824,
+          "Languedoc": 820,
+          "Lorraine": 767,
+          "Comté": 382,
+          "Picardie": 360,
+          "Bretagne": 352,
+          "Auvergne": 270,
+          "Trois évéchés": 261,
+          "Bourgogne": 244,
+          "Champagne": 239
+        },
+        "grade_final": {
+          "grenadier": 3923,
+          "caporal": 3065,
+          "sergent": 2923,
+          "anspessade": 2545,
+          "appointé": 1056,
+          "tambour": 867,
+          "fusilier": 778,
+          "dragon": 639,
+          "brigadier": 388,
+          "fourrier": 364
+        },
+        "prenom": {
+          "Jean": 9904,
+          "Pierre": 6932,
+          "François": 5456,
+          "Joseph": 3512,
+          "Jacques": 3262,
+          "Nicolas": 2996,
+          "Antoine": 2971,
+          "Louis": 2700,
+          "Jean Baptiste": 2397,
+          "Claude": 2189
+        },
+        "nom": {
+          "MARTIN": 333,
+          "PETIT": 163,
+          "DUBOIS": 152,
+          "MICHEL": 151,
+          "BERNARD": 147,
+          "ROBERT": 138,
+          "LEFEVRE": 131,
+          "DURAND": 123,
+          "LAMBERT": 122,
+          "SIMON": 117
+        },
+        "profession": {
+          "journalier": 367,
+          "laboureur": 281,
+          "cordonnier": 246,
+          "sans profession": 185,
+          "tisserant": 177,
+          "tailleur": 171,
+          "vigneron": 139,
+          "boulanger": 96,
+          "tisserand": 86,
+          "menuisier": 85
+        }
+      },
+      "numeric": {
+        "enrolement_annee": {
+          "n": 68475,
+          "min": 1614.0,
+          "max": 1858.0,
+          "mean": 1746.317,
+          "median": 1747.0
+        },
+        "naissance_annee": {
+          "n": 17700,
+          "min": 17.0,
+          "max": 1794.0,
+          "mean": 1720.287,
+          "median": 1720.0
+        },
+        "deces_annee": {
+          "n": 22175,
+          "min": 93.0,
+          "max": 1820.0,
+          "mean": 1748.354,
+          "median": 1748.0
+        },
+        "mariage_annee": {
+          "n": 2531,
+          "min": 1680.0,
+          "max": 1758.0,
+          "mean": 1722.824,
+          "median": 1723.0
+        },
+        "age": {
+          "n": 10552,
+          "min": 9.0,
+          "max": 1792.0,
+          "mean": 25.617,
+          "median": 23.0
+        },
+        "taille_metre": {
+          "n": 14,
+          "min": 1.66,
+          "max": 1.78,
+          "mean": 1.715,
+          "median": 1.71
+        }
+      }
+    },
+    "synth_complete": {
+      "dataset": "synth_complete",
+      "path": "validation/corpus/complete.csv",
+      "rows": 180,
+      "columns": 77,
+      "fill_rates_all": {
+        "section": 100.0,
+        "registre": 100.0,
+        "numero_page": 100.0,
+        "nom": 100.0,
+        "prenom": 100.0,
+        "surnom": 100.0,
+        "age": 100.0,
+        "profession": 100.0,
+        "domicile_departement": 100.0,
+        "domicile_lieu": 100.0,
+        "naissance_annee": 100.0,
+        "naissance_pays": 100.0,
+        "mariage_annee": 100.0,
+        "mariage_lieu": 100.0,
+        "mariage_departement": 100.0,
+        "deces_jour": 100.0,
+        "deces_mois": 100.0,
+        "deces_annee": 100.0,
+        "pere_decede": 100.0,
+        "pere_profession": 100.0,
+        "mere_decedee": 100.0,
+        "regiment": 100.0,
+        "compagnie": 100.0,
+        "bataillon": 100.0,
+        "matricule": 100.0,
+        "grade_final": 100.0,
+        "desertion": 100.0,
+        "enrolement_jour": 100.0,
+        "enrolement_mois": 100.0,
+        "enrolement_annee": 100.0,
+        "invalide": 100.0,
+        "ne_au_regiment": 100.0,
+        "double_page_url": 100.0,
+        "ark_url": 100.0,
+        "naissance_departement": 99.4,
+        "naissance_lieu": 99.4,
+        "naissance_juridiction": 99.4,
+        "pere_prenom": 99.4,
+        "mere_nom": 99.4,
+        "mere_prenom": 99.4,
+        "naissance_jour": 98.9,
+        "naissance_mois": 98.9,
+        "naissance_region": 12.8,
+        "pied": 7.2,
+        "pouce": 7.2,
+        "ligne": 7.2,
+        "taille_metre": 7.2,
+        "deces_lieu": 2.8,
+        "deces_departement": 2.8,
+        "naissance_pieve": 1.1,
+        "desertion_annee": 1.1,
+        "source_image": 0.0,
+        "double_page": 0.0,
+        "side": 0.0,
+        "line": 0.0,
+        "nom_autre": 0.0,
+        "domicile_pays": 0.0,
+        "mariage_jour": 0.0,
+        "mariage_mois": 0.0,
+        "mariage_pays": 0.0,
+        "deces_commune": 0.0,
+        "deces_pays": 0.0,
+        "pere_autre_prenom": 0.0,
+        "mere_autre_nom": 0.0,
+        "mere_autre_prenom": 0.0,
+        "page_bms": 0.0,
+        "grade_1": 0.0,
+        "grade_2": 0.0,
+        "grade_3": 0.0,
+        "renvoi_jour": 0.0,
+        "renvoi_mois": 0.0,
+        "renvoi_annee": 0.0,
+        "desertion_jour": 0.0,
+        "desertion_mois": 0.0,
+        "sort": 0.0,
+        "passe": 0.0,
+        "commentaires": 0.0
+      },
+      "fill_rates_focus": {
+        "nom": 100.0,
+        "prenom": 100.0,
+        "compagnie": 100.0,
+        "matricule": 100.0,
+        "enrolement_annee": 100.0,
+        "surnom": 100.0,
+        "naissance_lieu": 99.4,
+        "naissance_pays": 100.0,
+        "naissance_departement": 99.4,
+        "naissance_region": 12.8,
+        "pere_prenom": 99.4,
+        "mere_prenom": 99.4,
+        "mere_nom": 99.4,
+        "deces_annee": 100.0,
+        "grade_final": 100.0,
+        "naissance_annee": 100.0,
+        "regiment": 100.0,
+        "age": 100.0,
+        "profession": 100.0,
+        "taille_metre": 7.2,
+        "deces_lieu": 2.8,
+        "deces_departement": 2.8
+      },
+      "cardinality": {
+        "regiment": 6,
+        "compagnie": 13,
+        "naissance_departement": 14,
+        "naissance_pays": 2,
+        "naissance_region": 3,
+        "grade_final": 6,
+        "prenom": 27,
+        "nom": 52,
+        "profession": 13
+      },
+      "top_values": {
+        "regiment": {
+          "régiment de la Reine": 35,
+          "régiment de Champagne": 34,
+          "régiment de Bourbon": 32,
+          "régiment de Picardie": 32,
+          "régiment de Navarre": 25,
+          "régiment du Roi": 22
+        },
+        "compagnie": {
+          "compagnie de grenadiers": 23,
+          "compagnie Dauphine": 17,
+          "compagnie de Picardie": 16,
+          "compagnie A": 15,
+          "compagnie B": 14,
+          "compagnie D": 14,
+          "compagnie de Champagne": 14,
+          "compagnie de la Reine": 13,
+          "compagnie C": 12,
+          "compagnie de Bourbon": 12
+        },
+        "naissance_departement": {
+          "Isère": 27,
+          "Nord": 25,
+          "Gironde": 24,
+          "Eure": 23,
+          "Puy-de-Dôme": 21,
+          "Finistère": 16,
+          "Morbihan": 7,
+          "Bas-Rhin": 7,
+          "Seine": 7,
+          "Moselle": 6
+        },
+        "naissance_pays": {
+          "France": 178,
+          "Corse": 2
+        },
+        "naissance_region": {
+          "Bretagne": 16,
+          "Alsace": 5,
+          "Corse": 2
+        },
+        "grade_final": {
+          "soldat": 117,
+          "fourrier": 16,
+          "anspessade": 13,
+          "sergent": 13,
+          "caporal": 11,
+          "tambour": 10
+        },
+        "prenom": {
+          "Nicolas": 11,
+          "Hervé": 11,
+          "Guillaume": 10,
+          "Pierre": 10,
+          "Sébastien": 9,
+          "Jean": 9,
+          "Jacques": 8,
+          "Louis": 7,
+          "François": 7,
+          "Étienne": 7
+        },
+        "nom": {
+          "MARCHAND": 8,
+          "BRUN": 8,
+          "TANGUY": 7,
+          "GUEGAN": 7,
+          "SCHMITT": 7,
+          "GAILLARD": 6,
+          "MOREL": 6,
+          "FABLET": 6,
+          "LE GOFF": 6,
+          "ROUSSEL": 6
+        },
+        "profession": {
+          "vigneron": 20,
+          "meunier": 19,
+          "cordonnier": 18,
+          "maçon": 17,
+          "journalier": 17,
+          "tisserand": 15,
+          "menuisier": 13,
+          "charpentier": 12,
+          "tonnelier": 12,
+          "boulanger": 11
+        }
+      },
+      "numeric": {
+        "enrolement_annee": {
+          "n": 180,
+          "min": 1666.0,
+          "max": 1737.0,
+          "mean": 1710.689,
+          "median": 1711.0
+        },
+        "naissance_annee": {
+          "n": 180,
+          "min": 1638.0,
+          "max": 1715.0,
+          "mean": 1680.917,
+          "median": 1684.0
+        },
+        "deces_annee": {
+          "n": 180,
+          "min": 1684.0,
+          "max": 1760.0,
+          "mean": 1726.572,
+          "median": 1727.0
+        },
+        "mariage_annee": {
+          "n": 180,
+          "min": 1659.0,
+          "max": 1741.0,
+          "mean": 1705.733,
+          "median": 1709.0
+        },
+        "age": {
+          "n": 180,
+          "min": 16.0,
+          "max": 50.0,
+          "mean": 29.772,
+          "median": 27.0
+        },
+        "taille_metre": {
+          "n": 13,
+          "min": 1.62,
+          "max": 1.74,
+          "mean": 1.676,
+          "median": 1.68
+        }
+      }
+    },
+    "synth_masked": {
+      "dataset": "synth_masked",
+      "path": "validation/corpus/masked.csv",
+      "rows": 180,
+      "columns": 77,
+      "fill_rates_all": {
+        "section": 100.0,
+        "registre": 100.0,
+        "numero_page": 100.0,
+        "nom": 100.0,
+        "prenom": 100.0,
+        "compagnie": 100.0,
+        "double_page_url": 97.2,
+        "matricule": 83.9,
+        "ark_url": 83.9,
+        "enrolement_jour": 82.8,
+        "enrolement_mois": 82.8,
+        "enrolement_annee": 82.8,
+        "surnom": 77.8,
+        "naissance_lieu": 77.2,
+        "naissance_pays": 73.9,
+        "naissance_juridiction": 67.8,
+        "naissance_departement": 66.1,
+        "pere_prenom": 51.1,
+        "mere_prenom": 45.0,
+        "mere_nom": 42.2,
+        "deces_jour": 27.2,
+        "deces_mois": 27.2,
+        "deces_annee": 27.2,
+        "grade_final": 25.0,
+        "naissance_annee": 21.1,
+        "naissance_jour": 20.0,
+        "naissance_mois": 20.0,
+        "pere_decede": 15.0,
+        "mere_decedee": 15.0,
+        "regiment": 15.0,
+        "desertion": 15.0,
+        "invalide": 15.0,
+        "ne_au_regiment": 15.0,
+        "age": 12.8,
+        "naissance_region": 11.1,
+        "bataillon": 11.1,
+        "domicile_departement": 5.0,
+        "domicile_lieu": 5.0,
+        "profession": 3.9,
+        "pere_profession": 3.9,
+        "mariage_annee": 2.8,
+        "mariage_lieu": 2.8,
+        "mariage_departement": 2.8,
+        "pied": 2.2,
+        "pouce": 2.2,
+        "ligne": 2.2,
+        "taille_metre": 2.2,
+        "deces_lieu": 1.1,
+        "deces_departement": 1.1,
+        "desertion_annee": 1.1,
+        "naissance_pieve": 0.6,
+        "source_image": 0.0,
+        "double_page": 0.0,
+        "side": 0.0,
+        "line": 0.0,
+        "nom_autre": 0.0,
+        "domicile_pays": 0.0,
+        "mariage_jour": 0.0,
+        "mariage_mois": 0.0,
+        "mariage_pays": 0.0,
+        "deces_commune": 0.0,
+        "deces_pays": 0.0,
+        "pere_autre_prenom": 0.0,
+        "mere_autre_nom": 0.0,
+        "mere_autre_prenom": 0.0,
+        "page_bms": 0.0,
+        "grade_1": 0.0,
+        "grade_2": 0.0,
+        "grade_3": 0.0,
+        "renvoi_jour": 0.0,
+        "renvoi_mois": 0.0,
+        "renvoi_annee": 0.0,
+        "desertion_jour": 0.0,
+        "desertion_mois": 0.0,
+        "sort": 0.0,
+        "passe": 0.0,
+        "commentaires": 0.0
+      },
+      "fill_rates_focus": {
+        "nom": 100.0,
+        "prenom": 100.0,
+        "compagnie": 100.0,
+        "matricule": 83.9,
+        "enrolement_annee": 82.8,
+        "surnom": 77.8,
+        "naissance_lieu": 77.2,
+        "naissance_pays": 73.9,
+        "naissance_departement": 66.1,
+        "naissance_region": 11.1,
+        "pere_prenom": 51.1,
+        "mere_prenom": 45.0,
+        "mere_nom": 42.2,
+        "deces_annee": 27.2,
+        "grade_final": 25.0,
+        "naissance_annee": 21.1,
+        "regiment": 15.0,
+        "age": 12.8,
+        "profession": 3.9,
+        "taille_metre": 2.2,
+        "deces_lieu": 1.1,
+        "deces_departement": 1.1
+      },
+      "cardinality": {
+        "regiment": 6,
+        "compagnie": 13,
+        "naissance_departement": 14,
+        "naissance_pays": 2,
+        "naissance_region": 3,
+        "grade_final": 6,
+        "prenom": 27,
+        "nom": 52,
+        "profession": 6
+      },
+      "top_values": {
+        "regiment": {
+          "régiment de Navarre": 6,
+          "régiment de Bourbon": 5,
+          "régiment de la Reine": 5,
+          "régiment du Roi": 4,
+          "régiment de Champagne": 4,
+          "régiment de Picardie": 3
+        },
+        "compagnie": {
+          "compagnie de grenadiers": 23,
+          "compagnie Dauphine": 17,
+          "compagnie de Picardie": 16,
+          "compagnie A": 15,
+          "compagnie B": 14,
+          "compagnie D": 14,
+          "compagnie de Champagne": 14,
+          "compagnie de la Reine": 13,
+          "compagnie C": 12,
+          "compagnie de Bourbon": 12
+        },
+        "naissance_departement": {
+          "Finistère": 16,
+          "Isère": 16,
+          "Gironde": 15,
+          "Nord": 15,
+          "Eure": 13,
+          "Puy-de-Dôme": 10,
+          "Morbihan": 6,
+          "Seine": 6,
+          "Bas-Rhin": 5,
+          "Moselle": 5
+        },
+        "naissance_pays": {
+          "France": 131,
+          "Corse": 2
+        },
+        "naissance_region": {
+          "Bretagne": 14,
+          "Alsace": 4,
+          "Corse": 2
+        },
+        "grade_final": {
+          "soldat": 26,
+          "anspessade": 5,
+          "sergent": 5,
+          "fourrier": 4,
+          "caporal": 3,
+          "tambour": 2
+        },
+        "prenom": {
+          "Nicolas": 11,
+          "Hervé": 11,
+          "Guillaume": 10,
+          "Pierre": 10,
+          "Sébastien": 9,
+          "Jean": 9,
+          "Jacques": 8,
+          "Louis": 7,
+          "François": 7,
+          "Étienne": 7
+        },
+        "nom": {
+          "MARCHAND": 8,
+          "BRUN": 8,
+          "TANGUY": 7,
+          "GUEGAN": 7,
+          "SCHMITT": 7,
+          "GAILLARD": 6,
+          "MOREL": 6,
+          "FABLET": 6,
+          "LE GOFF": 6,
+          "ROUSSEL": 6
+        },
+        "profession": {
+          "journalier": 2,
+          "maçon": 1,
+          "cordonnier": 1,
+          "tonnelier": 1,
+          "vigneron": 1,
+          "meunier": 1
+        }
+      },
+      "numeric": {
+        "enrolement_annee": {
+          "n": 149,
+          "min": 1666.0,
+          "max": 1737.0,
+          "mean": 1710.322,
+          "median": 1711.0
+        },
+        "naissance_annee": {
+          "n": 38,
+          "min": 1638.0,
+          "max": 1693.0,
+          "mean": 1682.868,
+          "median": 1688.0
+        },
+        "deces_annee": {
+          "n": 49,
+          "min": 1684.0,
+          "max": 1740.0,
+          "mean": 1725.755,
+          "median": 1727.0
+        },
+        "mariage_annee": {
+          "n": 5,
+          "min": 1659.0,
+          "max": 1713.0,
+          "mean": 1694.0,
+          "median": 1706.0
+        },
+        "age": {
+          "n": 23,
+          "min": 20.0,
+          "max": 29.0,
+          "mean": 23.522,
+          "median": 23.0
+        },
+        "taille_metre": {
+          "n": 4,
+          "min": 1.62,
+          "max": 1.74,
+          "mean": 1.673,
+          "median": 1.665
+        }
+      }
+    }
+  },
+  "masked_vs_real": {
+    "fields": {
+      "nom": {
+        "real": 100.0,
+        "masked": 100.0,
+        "delta_pts": 0.0
+      },
+      "prenom": {
+        "real": 99.7,
+        "masked": 100.0,
+        "delta_pts": 0.3
+      },
+      "compagnie": {
+        "real": 99.3,
+        "masked": 100.0,
+        "delta_pts": 0.7
+      },
+      "matricule": {
+        "real": 83.6,
+        "masked": 83.9,
+        "delta_pts": 0.3
+      },
+      "enrolement_annee": {
+        "real": 82.9,
+        "masked": 82.8,
+        "delta_pts": -0.1
+      },
+      "surnom": {
+        "real": 78.4,
+        "masked": 77.8,
+        "delta_pts": -0.6
+      },
+      "naissance_lieu": {
+        "real": 77.3,
+        "masked": 77.2,
+        "delta_pts": -0.1
+      },
+      "naissance_pays": {
+        "real": 73.7,
+        "masked": 73.9,
+        "delta_pts": 0.2
+      },
+      "naissance_departement": {
+        "real": 65.7,
+        "masked": 66.1,
+        "delta_pts": 0.4
+      },
+      "naissance_region": {
+        "real": 11.4,
+        "masked": 11.1,
+        "delta_pts": -0.3
+      },
+      "pere_prenom": {
+        "real": 50.8,
+        "masked": 51.1,
+        "delta_pts": 0.3
+      },
+      "mere_prenom": {
+        "real": 45.2,
+        "masked": 45.0,
+        "delta_pts": -0.2
+      },
+      "mere_nom": {
+        "real": 42.3,
+        "masked": 42.2,
+        "delta_pts": -0.1
+      },
+      "deces_annee": {
+        "real": 26.8,
+        "masked": 27.2,
+        "delta_pts": 0.4
+      },
+      "grade_final": {
+        "real": 25.3,
+        "masked": 25.0,
+        "delta_pts": -0.3
+      },
+      "naissance_annee": {
+        "real": 21.4,
+        "masked": 21.1,
+        "delta_pts": -0.3
+      },
+      "regiment": {
+        "real": 14.6,
+        "masked": 15.0,
+        "delta_pts": 0.4
+      },
+      "age": {
+        "real": 12.8,
+        "masked": 12.8,
+        "delta_pts": 0.0
+      },
+      "profession": {
+        "real": 4.3,
+        "masked": 3.9,
+        "delta_pts": -0.4
+      },
+      "taille_metre": {
+        "real": 0.8,
+        "masked": 2.2,
+        "delta_pts": 1.4
+      },
+      "deces_lieu": {
+        "real": 0.5,
+        "masked": 1.1,
+        "delta_pts": 0.6
+      },
+      "deces_departement": {
+        "real": 0.3,
+        "masked": 1.1,
+        "delta_pts": 0.8
+      }
+    },
+    "max_abs_delta_pts": 1.4,
+    "mean_abs_delta_pts": 0.37
+  }
+}
