@@ -105,9 +105,10 @@ def _hbar(series: pd.Series, value_name: str, kp: str, *,
     limit; an explicit Altair chart with ``labelLimit=0`` on a horizontal axis
     shows them in full and scales height to the number of bars.
 
-    Everything is shown by default. When there are more than *trim_to* bars, a
-    "Trim to top N" toggle is offered (off by default) — handy when a real-archive
-    chart runs to hundreds of bars and only the head matters.
+    Charts are **trimmed to the top *trim_to*** by default. When there are more
+    than *trim_to* bars, a "Show all N" toggle is offered (off by default) to
+    expand to the full set — handy on the real archive where a chart can run to
+    hundreds of bars.
 
     The trim ranks by *weight* when given (aligned to *series*), else by the
     plotted value. For a mean (e.g. stature) pass the per-group ``n`` as *weight*
@@ -118,9 +119,9 @@ def _hbar(series: pd.Series, value_name: str, kp: str, *,
     keep = rank.index
     if len(rank) > trim_to:
         basis = "best-sampled (largest n)" if weight is not None else "largest"
-        if st.toggle(
-            f"Trim to top {trim_to}", key=f"{kp}_trim",
-            help=f"Off shows all {len(rank)} bars; on keeps the {trim_to} {basis}.",
+        if not st.toggle(
+            f"Show all {len(rank)}", key=f"{kp}_all",
+            help=f"Off keeps the {trim_to} {basis}; on shows all {len(rank)} bars.",
         ):
             keep = rank.head(trim_to).index
             omitted = len(rank) - trim_to
@@ -143,7 +144,10 @@ def _hbar(series: pd.Series, value_name: str, kp: str, *,
     )
     st.altair_chart(chart, use_container_width=True)
     if omitted:
-        st.caption(f"Showing the top {trim_to}; {omitted} smaller group(s) trimmed.")
+        st.caption(
+            f"Showing the top {trim_to}; {omitted} smaller group(s) hidden — "
+            "turn on **Show all** above to expand."
+        )
 
 
 # --------------------------------------------------------------------------- #
