@@ -42,6 +42,7 @@ def answer_with_rag(
     persist_dir: str,
     model_name: str,
     k: int,
+    collection_name: str = "soldiers",
 ) -> dict:
     """
     Full RAG pipeline: retrieve → build prompt → generate answer.
@@ -52,7 +53,7 @@ def answer_with_rag(
           "sources": list[dict]   # metadata dicts for each retrieved chunk
         }
     """
-    chunks = retrieve(question, k, persist_dir, model_name)
+    chunks = retrieve(question, k, persist_dir, model_name, collection_name)
     prompt = build_rag_prompt(question, chunks)
 
     resp = client.chat.completions.create(

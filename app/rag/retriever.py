@@ -10,7 +10,11 @@ import chromadb
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 
 
-def get_collection(persist_dir: str, model_name: str) -> chromadb.Collection:
+def get_collection(
+    persist_dir: str,
+    model_name: str,
+    collection_name: str = "soldiers",
+) -> chromadb.Collection:
     """
     Open the existing ChromaDB collection.
 
@@ -26,10 +30,10 @@ def get_collection(persist_dir: str, model_name: str) -> chromadb.Collection:
     client = chromadb.PersistentClient(path=persist_dir)
 
     try:
-        return client.get_collection(name="soldiers", embedding_function=ef)
+        return client.get_collection(name=collection_name, embedding_function=ef)
     except Exception as exc:
         raise FileNotFoundError(
-            f"Collection 'soldiers' not found in '{persist_dir}'. "
+            f"Collection '{collection_name}' not found in '{persist_dir}'. "
             "Run  python scripts/ingest_rag.py  first."
         ) from exc
 
@@ -39,6 +43,7 @@ def retrieve(
     k: int,
     persist_dir: str,
     model_name: str,
+    collection_name: str = "soldiers",
 ) -> list[dict]:
     """
     Query the vector store and return the top-k results.
@@ -48,7 +53,7 @@ def retrieve(
         metadata   — dict with nom, prenom, regiment, ark_url, source_image, …
         distance   — float similarity distance (lower = closer)
     """
-    collection = get_collection(persist_dir, model_name)
+    collection = get_collection(persist_dir, model_name, collection_name)
     results = collection.query(
         query_texts=[query],
         n_results=min(k, collection.count()),

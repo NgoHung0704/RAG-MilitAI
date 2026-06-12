@@ -235,10 +235,14 @@ MERGE (s)-[rel:HELD_RANK]->(rk)
 SET rel.order = r.order
 """
 
+# Parent identity is composite (spec §8): father on (soldier-surname + pere_prenom),
+# mother on (mere_nom + mere_prenom). MERGE — not CREATE — so siblings sharing a
+# parent point to the *same* Person node and graph family traversal works.
 _MERGE_PARENT = """
 UNWIND $rows AS r
 MATCH (s:Soldier {nom: r.nom, prenom: r.prenom, source_image: r.source_image, line_idx: r.line_idx})
-CREATE (p:Person {prenom: r.p_prenom, nom: r.p_nom, profession: r.p_profession, role: r.role})
+MERGE (p:Person {nom: r.p_nom, prenom: r.p_prenom, role: r.role})
+ON CREATE SET p.profession = r.p_profession
 MERGE (s)-[rel:CHILD_OF]->(p)
 SET rel.role = r.role
 """
@@ -339,7 +343,8 @@ def _ingest_chunk(session, df_chunk: pd.DataFrame, start_idx: int) -> None:
     desertion_rows = [
         {**_key(r), "regiment": r["regiment"],
          "jour": r["desertion_jour"], "mois": r["desertion_mois"], "annee": r["desertion_annee"]}
-        for r in rows if r.get("regiment") and r.get("desertion")
+        for r in rows
+        if r.get("regiment") and str(r.get("desertion") or "").strip().lower() == "oui"
     ]
     if desertion_rows:
         session.run(_MERGE_DESERTION, rows=desertion_rows)
@@ -375,24 +380,24 @@ def _ingest_chunk(session, df_chunk: pd.DataFrame, start_idx: int) -> None:
     parent_rows = []
     for i, (_, row) in enumerate(df_chunk.iterrows()):
         rec = _soldier_record(row, start_idx + i)
-        # Father
+        # Father — patronymic: the father's surname is the soldier's own nom.
         pere_prenom = _val(row.get("pere_prenom"))
         if pere_prenom:
             parent_rows.append({
                 **_key(rec),
                 "role": "father",
                 "p_prenom": pere_prenom,
-                "p_nom": _val(row.get("pere_autre_prenom")),
+                "p_nom": rec["nom"] or "",
                 "p_profession": _val(row.get("pere_profession")),
             })
-        # Mother
+        # Mother — maiden surname (mere_nom).
         mere_prenom = _val(row.get("mere_prenom"))
         if mere_prenom:
             parent_rows.append({
                 **_key(rec),
                 "role": "mother",
                 "p_prenom": mere_prenom,
-                "p_nom": _val(row.get("mere_nom")) or _val(row.get("mere_autre_nom")),
+                "p_nom": _val(row.get("mere_nom")) or _val(row.get("mere_autre_nom")) or "",
                 "p_profession": None,
             })
     if parent_rows:
@@ -433,19 +438,46 @@ def _key(rec: dict) -> dict:
 # Main
 # ---------------------------------------------------------------------------
 
+def ingest_to_neo4j(driver, csv_path: str, chunk_size: int = 5000) -> int:
+    """Set up schema and ingest *csv_path* into *driver*. Returns row count.
+
+    Reusable by both the CLI (`main`) and the turnkey `ingest_all.py`.
+    """
+    setup_schema(driver)
+    df = pd.read_csv(csv_path, dtype=str, keep_default_na=True)
+    total = len(df)
+    n_chunks = math.ceil(total / chunk_size)
+    with driver.session() as session:
+        for chunk_idx in tqdm(range(n_chunks), desc="Ingesting chunks", unit="chunk"):
+            start = chunk_idx * chunk_size
+            end = min(start + chunk_size, total)
+            chunk = df.iloc[start:end]
+            _ingest_chunk(session, chunk, start)
+    return total
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ingest CSV into Neo4j")
-    parser.add_argument("--csv", default=None, help="Path to CSV file")
+    parser.add_argument("--dataset", default="real",
+                        choices=list(config.DATASETS.keys()),
+                        help="Target dataset (resolves bolt URI + CSV from the registry)")
+    parser.add_argument("--csv", default=None, help="Override CSV file path")
     parser.add_argument("--sample", action="store_true",
-                        help="Use the 4-row sample file for testing")
+                        help="Use the 4-row sample file for testing (real dataset)")
     parser.add_argument("--chunk-size", type=int, default=5000,
                         help="Rows per transaction batch (default: 5000)")
     args = parser.parse_args()
 
-    csv_path = args.csv or (config.SAMPLE_DATA_PATH if args.sample else config.DATA_PATH)
+    ds = config.get_dataset(args.dataset)
+    csv_path = (
+        args.csv
+        or (config.SAMPLE_DATA_PATH if args.sample else ds["csv"])
+    )
+    neo4j_uri = ds["neo4j_uri"]
 
-    print(f"Connecting to Neo4j at {config.NEO4J_URI} …")
-    driver = get_driver()
+    print(f"Dataset      : {args.dataset} ({ds['label']})")
+    print(f"Connecting to Neo4j at {neo4j_uri} …")
+    driver = get_driver(neo4j_uri)
 
     print("Setting up schema (constraints + indexes) …")
     setup_schema(driver)
@@ -465,7 +497,7 @@ def main() -> None:
             chunk = df.iloc[start:end]
             _ingest_chunk(session, chunk, start)
 
-    print(f"\nDone. Ingested {total} records into Neo4j.")
+    print(f"\nDone. Ingested {total} records into Neo4j ({neo4j_uri}).")
     driver.close()
 
 
