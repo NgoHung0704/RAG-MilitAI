@@ -19,8 +19,10 @@ ingest as shadow `*_norm` properties / `wikidata_qid` on Place nodes):
 
 from __future__ import annotations
 
+import hashlib
 import json
 import unicodedata
+from dataclasses import dataclass
 from pathlib import Path
 
 from pools import DEPARTMENTS
@@ -79,6 +81,33 @@ DEPT_MODERN = {  # modern label where the name changed since 1790
 }
 
 
+def _snapshot_id() -> str:
+    """Content hash over the pinned source data + dates (§2: a snapshot_id is a
+    content hash + dates, recorded on every row). Stable across runs because it
+    folds only the frozen inputs, not the stamped output."""
+    src = json.dumps(
+        {"source": SNAPSHOT["source"], "pinned": SNAPSHOT["pinned"],
+         "geography": SNAPSHOT["geography"], "regions": REGIONS,
+         "dept_qid": DEPT_QID, "dept_modern": DEPT_MODERN, "departments": DEPARTMENTS},
+        ensure_ascii=False, sort_keys=True,
+    )
+    return "sha256:" + hashlib.sha256(src.encode("utf-8")).hexdigest()[:16]
+
+
+SNAPSHOT_ID = _snapshot_id()
+SNAPSHOT["snapshot_id"] = SNAPSHOT_ID
+
+
+def _empty_historical() -> dict:
+    """Layer-H fields: present in the schema, populated only when Layer H is
+    implemented (§1). Layer M leaves them empty."""
+    return {
+        "historical_names": [],     # [{name, start, end, source}] from P1448 + P580/P582 / WHG
+        "historical_parents": [],   # [{entity, start, end}] généralité/province at a date
+        "existence": {"inception": None, "abolished": None},  # P571 / P576
+    }
+
+
 def _build_gazetteer() -> dict:
     dept_region = {}
     for reg, info in REGIONS.items():
@@ -87,27 +116,69 @@ def _build_gazetteer() -> dict:
 
     departments = {}
     for d, reg in dept_region.items():
+        modern = DEPT_MODERN.get(d)
+        region_qid = REGIONS[reg]["qid"]
         departments[d] = {
             "label_fr": d,
-            "label_en": DEPT_MODERN.get(d, d),
+            "label_en": modern or d,
+            "en_label": d,                      # FR/EN department names coincide
+            # alt_labels: variant/renamed forms (e.g. Côtes-du-Nord -> Côtes-d'Armor)
+            "alt_labels": [modern] if modern and modern != d else [],
             "wikidata_qid": DEPT_QID.get(d),
+            "geonames_id": None,
+            "whg_id": None,                     # Layer-H anchor, not wired in the demo
+            "admin_level": "department",
             "p131_region": reg,
+            "parent_qids": [q for q in (region_qid,) if q],
+            "coords": None,
             "norm": norm(d),
+            **_empty_historical(),
+            "snapshot_id": SNAPSHOT_ID,
         }
 
     communes = {}
     for d, info in DEPARTMENTS.items():
+        reg = dept_region.get(d)
+        dept_qid = DEPT_QID.get(d)
+        region_qid = REGIONS[reg]["qid"] if reg in REGIONS else None
         for c in info["communes"]:
             communes[c] = {
-                "label": c, "wikidata_qid": None,
-                "p131_department": d, "p131_region": dept_region.get(d),
+                "label": c,
+                "en_label": c,
+                "alt_labels": [],
+                "wikidata_qid": None,
+                "geonames_id": None,
+                "whg_id": None,
+                "admin_level": "commune",
+                "p131_department": d,
+                "p131_region": reg,
+                "parent_qids": [q for q in (dept_qid, region_qid) if q],
+                "coords": None,
                 "norm": norm(c),
+                **_empty_historical(),
+                "snapshot_id": SNAPSHOT_ID,
             }
+
+    regions = {}
+    for r, v in REGIONS.items():
+        regions[r] = {
+            **v,
+            "en_label": v["en"],
+            "alt_labels": [],
+            "geonames_id": None,
+            "whg_id": None,
+            "admin_level": "region",
+            "parent_qids": [],          # top of the modelled hierarchy
+            "coords": None,
+            "norm_fr": norm(r),
+            "norm_en": norm(v["en"]),
+            **_empty_historical(),
+            "snapshot_id": SNAPSHOT_ID,
+        }
 
     return {
         "snapshot": SNAPSHOT,
-        "regions": {r: {**v, "norm_fr": norm(r), "norm_en": norm(v["en"])}
-                    for r, v in REGIONS.items()},
+        "regions": regions,
         "departments": departments,
         "communes": communes,
     }
@@ -122,13 +193,21 @@ for _r, _v in GAZETTEER["regions"].items():
     _REGION_INDEX[_v["norm_en"]] = _r
 _DEPT_INDEX = {v["norm"]: d for d, v in GAZETTEER["departments"].items()}
 _DEPT_INDEX.update({norm(v["label_en"]): d for d, v in GAZETTEER["departments"].items()})
-_COMMUNE_INDEX = {v["norm"]: c for c, v in GAZETTEER["communes"].items()}
+# Communes index norm -> [labels]: a single normalised form can denote several
+# communes (the many Saint-Martins). Disambiguation is by administrative context.
+_COMMUNE_INDEX: dict[str, list] = {}
+for _c, _v in GAZETTEER["communes"].items():
+    _COMMUNE_INDEX.setdefault(_v["norm"], []).append(_c)
 
 
-def resolve_place(name: str) -> dict | None:
+def resolve_place(name: str, context_dept: str | None = None) -> dict | None:
     """Resolve a FR or modern-EN place label to its canonical entry + the set of
     departments it covers (region -> its departments; department/commune -> itself).
-    Returns None if unresolved."""
+
+    ``context_dept`` (Toponym Spec §3 step 3) disambiguates homonyms at department
+    grain: when a normalised commune name maps to several communes, the one whose
+    P131 department matches ``context_dept`` is preferred. Returns None if unresolved.
+    """
     n = norm(name)
     if n in _REGION_INDEX:
         reg = _REGION_INDEX[n]
@@ -141,10 +220,91 @@ def resolve_place(name: str) -> dict | None:
                 "wikidata_qid": GAZETTEER["departments"][d]["wikidata_qid"],
                 "departments": [d]}
     if n in _COMMUNE_INDEX:
-        c = _COMMUNE_INDEX[n]
-        return {"kind": "commune", "canonical_fr": c, "wikidata_qid": None,
+        cands = _COMMUNE_INDEX[n]
+        c = _disambiguate_commune(cands, context_dept)
+        return {"kind": "commune", "canonical_fr": c,
+                "wikidata_qid": GAZETTEER["communes"][c]["wikidata_qid"],
                 "departments": [GAZETTEER["communes"][c]["p131_department"]]}
     return None
+
+
+def _disambiguate_commune(cands: list, context_dept: str | None) -> str:
+    """Pick one commune from homonym candidates (Toponym Spec §3 step 3): prefer the
+    one consistent with ``context_dept``; otherwise resolve deterministically."""
+    if len(cands) == 1:
+        return cands[0]
+    if context_dept:
+        cd = norm(context_dept)
+        match = [x for x in cands
+                 if norm(GAZETTEER["communes"][x]["p131_department"]) == cd]
+        if match:
+            return sorted(match)[0]
+    return sorted(cands)[0]
+
+
+# ---------------------------------------------------------------------------
+# Layer H — diachronic resolution (scaffold; Toponym Spec §4)
+# ---------------------------------------------------------------------------
+# Interfaces defined, deferred. The temporal-validity filter and the WHG fallback
+# stay unimplemented for the demo; the signature below and the empty historical_* /
+# existence schema fields are the hooks the real (HistoMil-AI / ArchivAI) pipeline
+# builds to. Nothing in the demo calls resolve_historical().
+LAYER_H_IMPLEMENTED = False
+
+
+@dataclass
+class PlaceResolution:
+    """Result of Layer-H resolution at a record's date (Toponym Spec §4).
+
+    ``qid`` / ``whg_id`` identify the entity (WHG is the historical anchor);
+    ``label_at_year`` and ``parent_at_year`` are the period-correct name and
+    administrative parent (parish -> généralité/province, not modern department);
+    ``confidence`` in [0, 1]; ``source`` is which authority answered
+    ('wikidata' | 'whg' | 'layer-M-fallback' | 'unresolved').
+    """
+    qid: str | None
+    whg_id: str | None
+    label_at_year: str | None
+    parent_at_year: str | None
+    confidence: float
+    source: str
+
+
+def resolve_historical(mention: str, year: int,
+                       context_dept: str | None = None) -> PlaceResolution:
+    """Resolve ``mention`` to the entity valid at ``year`` (Toponym Spec §4 contract).
+
+    Scaffold only — does NOT honour ``year``. The temporal-validity filter (keep
+    candidates whose historical_names/existence span contains ``year``) and the WHG
+    fallback are deferred until Layer H is wired to a frozen Wikidata+WHG snapshot
+    with populated ``historical_names`` / ``historical_parents`` / ``existence``.
+    Until then it delegates to Layer-M (present-day) resolution and flags the result
+    as a fallback with confidence 0 (not a period-correct answer).
+    """
+    # 1. candidate generation over canonical_fr + alt_labels (+ historical_names,
+    #    currently empty), narrowed by administrative context.
+    res = resolve_place(mention, context_dept=context_dept)
+    if res is None:
+        return PlaceResolution(None, None, None, None, 0.0, "unresolved")
+
+    # 2. TODO(Layer H): temporal-validity filter on historical_names/existence vs `year`.
+    # 3. TODO(Layer H): disambiguate by temporal parent at `year`; WHG fallback when
+    #    Wikidata coverage is thin (small/defunct communes). Deferred — see §4.
+    if LAYER_H_IMPLEMENTED:  # pragma: no cover - reserved for the diachronic pipeline
+        raise NotImplementedError("Layer-H temporal resolution is not implemented")
+
+    # Layer-M fallback: modern label + modern parent stand in for the period-correct
+    # ones; confidence 0 marks that `year` was not applied.
+    kind, cf = res["kind"], res["canonical_fr"]
+    if kind == "department":
+        parent = GAZETTEER["departments"][cf]["p131_region"]
+    elif kind == "commune":
+        parent = GAZETTEER["communes"][cf]["p131_department"]
+    else:
+        parent = None
+    return PlaceResolution(qid=res["wikidata_qid"], whg_id=None,
+                           label_at_year=cf, parent_at_year=parent,
+                           confidence=0.0, source="layer-M-fallback")
 
 
 def write_gazetteer(path: Path):
