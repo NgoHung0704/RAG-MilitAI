@@ -59,7 +59,9 @@ def artifact_meta() -> dict:
     """What can be derived about the run (no manifest is emitted yet, §3)."""
     meta: dict = {"available": RESULTS_PATH.exists()}
     if RESULTS_PATH.exists():
-        meta["results_path"] = str(RESULTS_PATH)
+        meta["results_path"] = RESULTS_PATH.relative_to(
+            config.PROJECT_ROOT
+        ).as_posix()
         meta["results_modified"] = datetime.fromtimestamp(
             RESULTS_PATH.stat().st_mtime
         ).strftime("%Y-%m-%d %H:%M")
