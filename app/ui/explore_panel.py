@@ -24,6 +24,7 @@ from __future__ import annotations
 import altair as alt
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 
 from app import geo
 
@@ -267,6 +268,179 @@ def _plot_height(df: pd.DataFrame, kp: str) -> None:
         return
     _hbar(agg["mean"], "mean stature (m)", kp, weight=agg["count"])
     st.caption("Groups with n < 5 omitted from the means.")
+
+
+# Per-stage node cap for the Sankey. The long tail is *dropped*, not folded into
+# an "Other" node: on the 82k archive a giant Other bucket dominates the diagram
+# and crushes the labelled nodes into an unreadable smear. We keep the top-N most
+# frequent categories per stage and report how many soldiers were trimmed.
+_SANKEY_TOPN = 12
+_SANKEY_STAGE_COLOUR = {"birth": "#4C78A8", "mid": "#F58518", "death": "#E45756"}
+
+
+def _plot_sankey(df: pd.DataFrame, kp: str) -> None:
+    """Migration Sankey: birthplace → recruitment node (→ death, optional).
+
+    The dense 2-stage flow (birth → company / domicile) is the always-populated
+    view; the death 3rd stage is the sparsest join in the corpus and is *meant*
+    to collapse under MASKED/real — the COMPLETE→MASKED through-line in ribbon
+    form. `reference`-style places are namespaced per stage so a place that is
+    both a birth and a death location stays two distinct nodes.
+    """
+    gran = st.radio("Birthplace level", ["Department", "Region"], horizontal=True,
+                    key=f"{kp}_lvl",
+                    help="Department is the dense birth field (~99% on COMPLETE); "
+                         "Region is low-cardinality but sparsely annotated here.")
+    origin = "naissance_departement" if gran == "Department" else "naissance_region"
+    mid_label = st.radio("Recruitment node", ["Company", "Domicile (residence)"],
+                         horizontal=True, key=f"{kp}_mid",
+                         help="`compagnie` is the unit (dense); `domicile` is the "
+                              "residence — the closest thing to a recruitment place.")
+    mid = "compagnie" if mid_label == "Company" else "domicile_departement"
+    add_death = st.toggle(
+        "Add death-place stage (collapses under sparsity)", key=f"{kp}_death",
+        help="The birth→recruit→death trajectory needs all three fields — the "
+             "sparsest join. Populates only on synthetic COMPLETE.",
+    )
+
+    if not _present(df, origin).any():
+        st.info(f"No `{origin}` values in this dataset.")
+        return
+    if not _present(df, mid).any():
+        st.info(f"No `{mid}` values in this dataset.")
+        return
+
+    if add_death:
+        has_death = _present(df, "deces_departement") | _present(df, "deces_lieu")
+        mask = _present(df, origin) & _present(df, mid) & has_death
+        n = int(mask.sum())
+        _fill_caption(n, len(df), f" — `{origin}` → `{mid}` → death (3-way joint)")
+        st.info(
+            "🪦 **The 3-way trajectory is the sparsest join.** It populates only on "
+            "synthetic COMPLETE (the planted trajectory cases) and collapses to "
+            "nothing under MASKED / real — that collapse is the finding, not a bug."
+        )
+        if n == 0:
+            st.caption("No record has birthplace, recruitment node and death place.")
+            return
+        sub = df.loc[mask].copy()
+        sub["_death"] = sub["deces_departement"].where(
+            _present(sub, "deces_departement"), sub["deces_lieu"])
+        stages = [(origin, "birth"), (mid, "mid"), ("_death", "death")]
+    else:
+        mask = _present(df, origin) & _present(df, mid)
+        n = int(mask.sum())
+        _fill_caption(n, len(df), f" — `{origin}` → `{mid}` (dense joint)")
+        if not _guard(n, f"{origin} → {mid} flows"):
+            return
+        sub = df.loc[mask].copy()
+        stages = [(origin, "birth"), (mid, "mid")]
+
+    # Keep only the top-N categories per stage and DROP the rest (no giant
+    # "Other" node). Rows whose value in any stage falls in the tail are removed
+    # so the diagram is a clean top-N × top-N flow with non-overlapping labels.
+    keep = {col: set(sub[col].value_counts().head(_SANKEY_TOPN).index)
+            for col, _ in stages}
+    in_keep = pd.Series(True, index=sub.index)
+    for col, _ in stages:
+        in_keep &= sub[col].isin(keep[col])
+    omitted = int((~in_keep).sum())
+    sub = sub.loc[in_keep]
+    if sub.empty:
+        st.caption("No flows remain after trimming to the most frequent categories.")
+        return
+    n_shown = len(sub)
+
+    # Build the node table (namespaced per stage) and the inter-stage links.
+    idx: dict[str, int] = {}
+    labels, colours = [], []
+
+    def _label(val: str) -> str:
+        # Real-archive department columns store INSEE codes; show the name too.
+        # getattr guard so a hot-reload race on app.geo degrades to the raw code
+        # instead of crashing the panel.
+        name_fn = getattr(geo, "department_name", None)
+        name = name_fn(val) if name_fn else None
+        return f"{name} ({str(val).strip()})" if name else str(val)
+
+    def _node(role: str, val: str) -> int:
+        nid = f"{role}::{val}"
+        if nid not in idx:
+            idx[nid] = len(labels)
+            labels.append(_label(val))
+            colours.append(_SANKEY_STAGE_COLOUR[role])
+        return idx[nid]
+
+    sources, targets, values = [], [], []
+    for (c1, r1), (c2, r2) in zip(stages[:-1], stages[1:]):
+        pair = pd.DataFrame({"a": sub[c1].to_numpy(), "b": sub[c2].to_numpy()})
+        for (a, b), v in pair.groupby(["a", "b"]).size().items():
+            sources.append(_node(r1, a))
+            targets.append(_node(r2, b))
+            values.append(int(v))
+
+    try:
+        import plotly.graph_objects as go
+    except Exception as exc:  # plotly is a declared dep, but degrade safely
+        st.info(f"Sankey unavailable ({exc}). Showing the flow table instead.")
+        st.dataframe(
+            pd.DataFrame({"from": [labels[s] for s in sources],
+                          "to": [labels[t] for t in targets], "soldiers": values}),
+            use_container_width=True, hide_index=True,
+        )
+        return
+
+    # Height scales with the busiest stage so every node has room for its label
+    # (overlapping nodes were what made the text look layered).
+    max_nodes = max(int(sub[col].nunique()) for col, _ in stages)
+    height = max(420, max_nodes * 36)
+    width = 560 if kp.endswith(("_c", "_m")) else 1150
+    # Generous side margins so the outer node labels (long company / department
+    # names) sit inside the plot area instead of being clipped at the edges.
+    margin_lr = 200
+
+    fig = go.Figure(go.Sankey(
+        arrangement="snap",
+        node=dict(label=labels, color=colours, pad=24, thickness=18,
+                  line=dict(color="#2b2b2b", width=0.5),
+                  hovertemplate="%{label}: %{value} soldiers<extra></extra>"),
+        link=dict(source=sources, target=targets, value=values,
+                  color="rgba(170,170,170,0.20)",
+                  hovertemplate="%{source.label} → %{target.label}: "
+                                "%{value} soldiers<extra></extra>"),
+    ))
+    fig.update_layout(width=width, height=height, autosize=False,
+                      margin=dict(l=margin_lr, r=margin_lr, t=10, b=10),
+                      font=dict(size=13, color="#1a1a1a"))
+    # Render as a self-contained HTML document in an iframe rather than via
+    # st.plotly_chart. Streamlit's native plotly integration re-uses one chart
+    # instance and re-lays-it-out on resize/rerun, which trips a plotly.js Sankey
+    # bug that *appends* (duplicates) the node-label text into an unreadable
+    # smear. A fresh iframe drawn at a fixed width (not responsive) renders the
+    # figure exactly once — the same clean output as a static export. plotly.js
+    # is inlined so it stays offline.
+    html = fig.to_html(include_plotlyjs=True, full_html=True,
+                       default_width=f"{width}px", default_height=f"{height}px",
+                       config={"displayModeBar": False, "responsive": False})
+    components.html(html, width=width + 20, height=height + 24, scrolling=False)
+
+    stage_names = " → ".join(
+        {"birth": gran.lower() + " of birth", "mid": mid_label.lower(),
+         "death": "death place"}[r] for _, r in stages
+    )
+    note = ""
+    if omitted:
+        total = n_shown + omitted
+        note = (
+            f" Showing the top {_SANKEY_TOPN} categories per stage — "
+            f"**{100 * n_shown / total:.0f}%** of the {total} soldiers with both "
+            f"fields; {omitted} in the long tail are omitted for legibility "
+            "(these fields are high-cardinality on the real archive)."
+        )
+    st.caption(
+        f"Flow: **{stage_names}** over {n_shown} soldier(s); node height = "
+        f"soldiers, ribbon width = flow size.{note}"
+    )
 
 
 def _plot_flows(df: pd.DataFrame, kp: str) -> None:
@@ -570,6 +744,15 @@ def render(config) -> None:
         _render_one(_plot_height, cols, "height")
 
     with tab_mig:
+        st.subheader("Migration Sankey — birthplace → recruitment → death")
+        st.caption(
+            "Flow ribbons between places. The dense birth→recruitment stage holds "
+            "up; toggle the death stage to watch the trajectory view collapse under "
+            "sparsity (the COMPLETE→MASKED through-line). Hover ribbons for counts; "
+            "drag nodes to rearrange."
+        )
+        _render_one(_plot_sankey, cols, "sankey")
+        st.markdown("---")
         st.subheader("Birthplace → company recruitment flows")
         _render_one(_plot_flows, cols, "flows")
         st.markdown("---")
