@@ -14,7 +14,13 @@ dependencies = [
     "python-dotenv",
     "tqdm",
     "pyyaml>=6.0.3",
+    "plotly>=6.8.0",
 ]
 
 [tool.uv]
 package = false
+
+[dependency-groups]
+dev = [
+    "matplotlib>=3.11.0",
+]
