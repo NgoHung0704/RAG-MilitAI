@@ -7,12 +7,21 @@ Run with:
 
 from __future__ import annotations
 
+import logging
 import sys
 from pathlib import Path
 
 # Ensure project root is on sys.path so `app.*` and `validation.*` imports work
 # when run via Streamlit.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+# Streamlit's hot-reload watcher crawls every loaded module to map source files.
+# When it touches `transformers`' lazy module objects (pulled in by
+# sentence-transformers) it triggers imports of optional vision processors that
+# need `torchvision` — absent here, since the app only does text embeddings. The
+# watcher catches each failure but logs the full traceback, spamming the console.
+# Raise its log level to ERROR to silence that noise without disabling reload.
+logging.getLogger("streamlit.watcher.local_sources_watcher").setLevel(logging.ERROR)
 
 import streamlit as st
 from openai import OpenAI

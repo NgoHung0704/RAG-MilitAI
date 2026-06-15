@@ -16,6 +16,7 @@ defect.
 
 from __future__ import annotations
 
+import altair as alt
 import pandas as pd
 import streamlit as st
 
@@ -190,6 +191,13 @@ def _cond_table(records: list[dict], label_col: str) -> None:
 
 def _render_breakdowns(rows: list[dict], rag_rows: list[dict]) -> None:
     st.subheader("Breakdowns")
+
+    # Engine × use-case overview — spans every live engine, so it sits *above*
+    # the single-engine selector that filters the drill-down tabs below.
+    _render_use_case_by_engine(rows)
+
+    st.markdown("---")
+    st.caption("**Drill down into a single engine:**")
     eng = _engine_selector(rows, key="bd_engine")
 
     t_strat, t_mode, t_uc, t_split = st.tabs(
@@ -218,7 +226,11 @@ def _render_breakdowns(rows: list[dict], rag_rows: list[dict]) -> None:
         )
 
     with t_uc:
-        st.caption("lookup / bounded / genealogy / migration / anthropometric / mechanics.")
+        st.caption(
+            f"lookup / bounded / genealogy / migration / anthropometric / mechanics "
+            f"— single-engine detail for **{eng}** (the cross-engine chart is the "
+            f"overview at the top of this section)."
+        )
         _cond_table(rl.by_field(rows, "use_case", engine=eng), "use_case")
 
     with t_split:
@@ -227,6 +239,120 @@ def _render_breakdowns(rows: list[dict], rag_rows: list[dict]) -> None:
             "`seen` templates vs `unseen` held-out phrasings."
         )
         _cond_table(rl.by_field(rows, "split", engine=eng), "split")
+
+
+# Live engines get a panel; `reference` is the oracle (1.0 ceiling), not a panel.
+_LIVE_ENGINE_ORDER = ("template", "nl2cypher")
+
+
+def _use_case_by_engine_frame(rows: list[dict]):
+    """Tidy frame for the engine × use-case dumbbell + the row sort and panel
+    labels. Returns ``(df, y_order, panel_labels)`` or ``(None, [], [])`` when
+    no live engine has scored rows."""
+    present = rl.engines(rows)
+    engines = [e for e in _LIVE_ENGINE_ORDER if e in present]
+    engines += [e for e in present if e not in engines and e != "reference"]
+    if not engines:
+        return None, [], []
+
+    nq = {h["engine"]: h["n_complete"] for h in rl.headline(rows)}
+    labels = [f"{e}  (n={nq.get(e, 0)})" for e in engines]
+
+    recs = []
+    for e in engines:
+        label = f"{e}  (n={nq.get(e, 0)})"
+        for r in rl.by_field(rows, "use_case", engine=e):
+            c, m = r["complete"], r["masked"]
+            recs.append({
+                "engine": e, "panel": label, "use_case": r["use_case"],
+                "COMPLETE": None if c is None else round(c * 100, 1),
+                "MASKED": None if m is None else round(m * 100, 1),
+                "n": r["n"],
+                "delta": None if r["delta"] is None else round(r["delta"], 3),
+                "ceiling": 100,
+            })
+
+    # Sort rows by the richest engine's COMPLETE accuracy (desc); append any use
+    # case it does not cover so every panel shares one consistent y order.
+    order_src = "nl2cypher" if "nl2cypher" in engines else engines[-1]
+    ranked = sorted(
+        rl.by_field(rows, "use_case", engine=order_src),
+        key=lambda r: (r["complete"] is None, -(r["complete"] or 0.0)),
+    )
+    order = [r["use_case"] for r in ranked]
+    order += [r["use_case"] for r in recs if r["use_case"] not in order]
+    order = list(dict.fromkeys(order))
+
+    return pd.DataFrame(recs), order, labels
+
+
+def _render_use_case_by_engine(rows: list[dict]) -> None:
+    """Interactive cross-engine dumbbell: per-use-case accuracy, COMPLETE vs
+    MASKED, one faceted panel per live engine. Hover for exact values.
+
+    This is the densest single view — every live engine, every use case, both
+    conditions, plus the oracle ceiling — so it heads the Breakdowns section as
+    the overview; the tabs below drill into one selected engine.
+    """
+    st.markdown("**Per-use-case accuracy by engine — COMPLETE vs MASKED**")
+    st.caption(
+        "engine × use case. Each row is a COMPLETE→MASKED dumbbell — the gap is the "
+        "cost of real-archive sparsity, and the distance from the dashed **reference "
+        "oracle (1.0)** ceiling is real system error. `reference` is the oracle, so it "
+        "is the ceiling, not a panel. Hover a point for exact values."
+    )
+
+    df, order, labels = _use_case_by_engine_frame(rows)
+    if df is None or df.empty:
+        st.info(
+            "No live-engine rows to chart yet — run `make eval-live` to populate "
+            "`template` / `nl2cypher` results."
+        )
+        return
+
+    yy = alt.Y("use_case:N", sort=order, title=None)
+    cscale = alt.Scale(domain=["COMPLETE", "MASKED"], range=["#2b7bba", "#e8632a"])
+    base = alt.Chart(df)
+
+    connector = base.mark_rule(color="#b8b8b8", size=3).encode(
+        y=yy, x=alt.X("COMPLETE:Q"), x2="MASKED:Q",
+    )
+    ceiling = base.mark_rule(color="#9a9a9a", strokeDash=[4, 4], size=1).encode(
+        x="ceiling:Q",
+    )
+    points = (
+        base.transform_fold(["COMPLETE", "MASKED"], as_=["condition", "accuracy"])
+        .mark_point(filled=True, size=150, stroke="#2b2b2b", strokeWidth=1, opacity=1)
+        .encode(
+            y=yy,
+            x=alt.X(
+                "accuracy:Q", title="Accuracy (%)",
+                scale=alt.Scale(domain=[-4, 112]),
+                axis=alt.Axis(values=[0, 25, 50, 75, 100]),
+            ),
+            color=alt.Color(
+                "condition:N", scale=cscale,
+                legend=alt.Legend(title=None, orient="bottom"),
+            ),
+            tooltip=[
+                alt.Tooltip("engine:N", title="engine"),
+                alt.Tooltip("use_case:N", title="use case"),
+                alt.Tooltip("condition:N", title="condition"),
+                alt.Tooltip("accuracy:Q", title="accuracy (%)", format=".1f"),
+                alt.Tooltip("n:Q", title="n (rows)"),
+                alt.Tooltip("delta:Q", title="Δ masked−complete", format="+.3f"),
+            ],
+        )
+    )
+
+    chart = (
+        alt.layer(ceiling, connector, points)
+        .properties(width=300, height=260)
+        .facet(column=alt.Column("panel:N", sort=labels, title=None))
+        .resolve_scale(x="shared", y="shared")
+        .interactive()  # click-drag pan / scroll-zoom, on top of hover tooltips
+    )
+    st.altair_chart(chart, use_container_width=True)
 
 
 def _engine_selector(rows: list[dict], key: str) -> str:
