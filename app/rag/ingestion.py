@@ -240,9 +240,14 @@ def ingest_csv(
 
     ef = SentenceTransformerEmbeddingFunction(model_name=model_name)
     client = chromadb.PersistentClient(path=persist_dir)
+    # Pin the similarity metric to cosine. Without this, Chroma defaults to
+    # squared-L2; sentence-transformer embeddings are compared by angle, so
+    # cosine is the correct (and reported) metric. The space is fixed at
+    # collection-creation time, so existing l2 stores must be re-ingested.
     collection = client.get_or_create_collection(
         name=collection_name,
         embedding_function=ef,
+        configuration={"hnsw": {"space": "cosine"}},
     )
 
     df = pd.read_csv(csv_path, dtype=str, keep_default_na=True)
