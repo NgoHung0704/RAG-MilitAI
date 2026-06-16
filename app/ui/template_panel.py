@@ -8,7 +8,21 @@ import neo4j
 import pandas as pd
 import streamlit as st
 
-from app.graph.templates import TEMPLATES, Template, run_template
+from app.graph.templates import (
+    TEMPLATES,
+    ParamDef,
+    Template,
+    fetch_options,
+    run_template,
+)
+
+
+def _options_for(driver: neo4j.Driver, p: ParamDef) -> list[str]:
+    """Fetch (and cache for the session) the selectable values for a multiselect param."""
+    cache = st.session_state.setdefault("_tpl_options_cache", {})
+    if p.options_cypher not in cache:
+        cache[p.options_cypher] = fetch_options(driver, p.options_cypher)
+    return cache[p.options_cypher]
 
 
 def render(driver: neo4j.Driver | None, config) -> None:
@@ -44,6 +58,13 @@ def render(driver: neo4j.Driver | None, config) -> None:
                         format="%d",
                         key=f"tpl_param_{p.name}",
                     )
+                elif p.type == "multiselect":
+                    params[p.name] = st.multiselect(
+                        p.label,
+                        options=_options_for(driver, p),
+                        key=f"tpl_param_{p.name}",
+                        help="Type to search; select one or more.",
+                    )
                 else:
                     params[p.name] = st.text_input(
                         p.label,
@@ -59,7 +80,8 @@ def render(driver: neo4j.Driver | None, config) -> None:
         # Validate that required string params are non-empty
         missing = [
             p.label for p in template.params
-            if p.type == "str" and not str(params.get(p.name, "")).strip()
+            if (p.type == "str" and not str(params.get(p.name, "")).strip())
+            or (p.type == "multiselect" and not params.get(p.name))
         ]
         if missing:
             st.warning(f"Please fill in: {', '.join(missing)}")

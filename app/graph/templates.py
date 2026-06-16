@@ -18,10 +18,13 @@ import neo4j
 
 @dataclass
 class ParamDef:
-    name: str           # matches $param in Cypher
-    type: str           # "str" or "int"
-    label: str          # UI label
+    name: str                   # matches $param in Cypher
+    type: str                   # "str", "int", or "multiselect"
+    label: str                  # UI label
     placeholder: str = ""
+    # For type="multiselect": Cypher returning a single column of selectable
+    # values (aliased AS value). The UI populates the searchable picker from it.
+    options_cypher: str = ""
 
 
 @dataclass
@@ -107,6 +110,23 @@ RETURN s.nom AS nom, s.prenom AS prenom, s.surnom AS surnom,
        r.nom AS regiment, s.matricule AS matricule,
        s.grade_final AS grade_final
 ORDER BY s.nom
+        """.strip(),
+    ),
+    Template(
+        id="in_company",
+        name="All soldiers in company",
+        description="Returns all soldiers who belonged to one of the selected companies.",
+        params=[ParamDef(
+            "compagnie", "multiselect", "Company",
+            options_cypher="MATCH (c:Company) RETURN c.nom AS value ORDER BY value",
+        )],
+        cypher="""
+MATCH (s:Soldier)-[:BELONGS_TO]->(c:Company)
+WHERE c.nom IN $compagnie
+RETURN s.nom AS nom, s.prenom AS prenom, s.surnom AS surnom,
+       c.nom AS compagnie, s.regiment AS regiment,
+       s.matricule AS matricule, s.grade_final AS grade_final
+ORDER BY s.nom, s.prenom
         """.strip(),
     ),
     Template(
@@ -232,3 +252,10 @@ def run_template(
     with driver.session() as session:
         result = session.run(template.cypher, **params)
         return [dict(record) for record in result]
+
+
+def fetch_options(driver: neo4j.Driver, options_cypher: str) -> list[str]:
+    """Run a multiselect param's options_cypher and return its values (aliased AS value)."""
+    with driver.session() as session:
+        result = session.run(options_cypher)
+        return [r["value"] for r in result if r["value"] is not None]
