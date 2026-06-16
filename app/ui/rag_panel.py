@@ -61,19 +61,32 @@ def render(client: OpenAI | None, config, collection_name: str = "soldiers") -> 
         st.markdown("### Answer")
         st.markdown(result["answer"])
 
-        with st.expander(f"Source records used ({len(result['sources'])})"):
+        with st.expander(f"Closest matching records ({len(result['sources'])})"):
+            st.caption(
+                "These are the records closest to your question in the vector "
+                "search — always the top few, even if none truly match. "
+                "Check the relevance score before trusting a record."
+            )
             for i, src in enumerate(result["sources"], start=1):
                 nom = src.get("nom", "")
                 prenom = src.get("prenom", "")
                 regiment = src.get("regiment", "")
                 ark_url = src.get("ark_url", "")
                 source_image = src.get("source_image", "")
+                distance = src.get("_distance")
 
                 title = f"**{i}. {prenom} {nom}**"
                 if regiment:
                     title += f" — {regiment}"
 
                 st.markdown(title)
+                if distance is not None:
+                    # ChromaDB cosine space: distance = 1 - cosine similarity.
+                    # Convert to a 0–100% relevance score (clamped) for display.
+                    relevance = max(0.0, min(1.0, 1.0 - distance))
+                    st.caption(
+                        f"Relevance: {relevance:.0%}  ·  cosine distance {distance:.3f}"
+                    )
                 if source_image:
                     st.caption(f"Source: `{source_image}`")
                 if ark_url:

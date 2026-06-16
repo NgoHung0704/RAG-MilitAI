@@ -67,5 +67,9 @@ def answer_with_rag(
 
     return {
         "answer": resp.choices[0].message.content,
-        "sources": [c["metadata"] for c in chunks],
+        # Carry the cosine distance alongside each metadata dict so the UI can
+        # show how relevant each retrieved record actually is. These are the
+        # nearest neighbours in embedding space — always k of them, even when
+        # nothing in the archive truly matches the question.
+        "sources": [{**c["metadata"], "_distance": c["distance"]} for c in chunks],
     }
