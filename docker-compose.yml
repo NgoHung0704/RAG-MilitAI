@@ -15,10 +15,14 @@ services:
       - neo4j_data:/data
       - neo4j_logs:/logs
     healthcheck:
-      test: ["CMD-SHELL", "cypher-shell -u ${NEO4J_USER:-neo4j} -p ${NEO4J_PASSWORD:-neo4jpassword} 'RETURN 1' >/dev/null 2>&1 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
+      # JVM-free bolt probe. cypher-shell spawns a JVM per check, which on a
+      # constrained host outlives the timeout; the orphans then accumulate and
+      # starve the very server being probed.
+      test: ["CMD-SHELL", "timeout 5 bash -c '</dev/tcp/localhost/7687' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 180s
 
   # Synthetic — COMPLETE annotation (180 records). bolt 7688, minimal heap.
   neo4j-synth-complete:
@@ -35,10 +39,14 @@ services:
     volumes:
       - neo4j_synth_complete_data:/data
     healthcheck:
-      test: ["CMD-SHELL", "cypher-shell -u ${NEO4J_USER:-neo4j} -p ${NEO4J_PASSWORD:-neo4jpassword} 'RETURN 1' >/dev/null 2>&1 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
+      # JVM-free bolt probe. cypher-shell spawns a JVM per check, which on a
+      # constrained host outlives the timeout; the orphans then accumulate and
+      # starve the very server being probed.
+      test: ["CMD-SHELL", "timeout 5 bash -c '</dev/tcp/localhost/7687' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 180s
 
   # Synthetic — MASKED to real sparsity (180 records). bolt 7689, minimal heap.
   neo4j-synth-masked:
@@ -55,10 +63,14 @@ services:
     volumes:
       - neo4j_synth_masked_data:/data
     healthcheck:
-      test: ["CMD-SHELL", "cypher-shell -u ${NEO4J_USER:-neo4j} -p ${NEO4J_PASSWORD:-neo4jpassword} 'RETURN 1' >/dev/null 2>&1 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
+      # JVM-free bolt probe. cypher-shell spawns a JVM per check, which on a
+      # constrained host outlives the timeout; the orphans then accumulate and
+      # starve the very server being probed.
+      test: ["CMD-SHELL", "timeout 5 bash -c '</dev/tcp/localhost/7687' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 180s
 
   # Dedicated scratch instance for the offline eval runner
   # (validation/evaluate.py --live). It does per-condition wipe+reload, so it is
@@ -80,10 +92,14 @@ services:
     volumes:
       - neo4j_eval_data:/data
     healthcheck:
-      test: ["CMD-SHELL", "cypher-shell -u ${NEO4J_USER:-neo4j} -p ${NEO4J_PASSWORD:-neo4jpassword} 'RETURN 1' >/dev/null 2>&1 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
+      # JVM-free bolt probe. cypher-shell spawns a JVM per check, which on a
+      # constrained host outlives the timeout; the orphans then accumulate and
+      # starve the very server being probed.
+      test: ["CMD-SHELL", "timeout 5 bash -c '</dev/tcp/localhost/7687' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 180s
 
   app:
     build:
